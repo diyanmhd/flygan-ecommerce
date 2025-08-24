@@ -1,146 +1,102 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { Link } from "react-router-dom";
+import { SearchContext } from "../components/search";
 
-function Cart() {
-  const [cart, setCart] = useState([]);
-  const userId = localStorage.getItem("userId");
+function Collection() {
+  const [products, setProducts] = useState([]);
+  const [wishlist, setWishlist] = useState(
+    JSON.parse(localStorage.getItem("wishlist")) || []
+  );
+  const [category, setCategory] = useState("all");
+  const { search } = useContext(SearchContext); // 🔹 read global search
 
   useEffect(() => {
-    const saved = JSON.parse(localStorage.getItem("cart_" + userId)) || [];
-    setCart(saved);
-  }, [userId]);
+    fetch("http://localhost:3000/products")
+      .then((res) => res.json())
+      .then((data) => setProducts(data))
+      .catch((err) => console.log(err));
+  }, []);
 
-  const updateCart = (newCart) => {
-    setCart(newCart);
-    localStorage.setItem("cart_" + userId, JSON.stringify(newCart));
+  const toggleWishlist = (id) => {
+    const newWishlist = wishlist.includes(id)
+      ? wishlist.filter((pid) => pid !== id)
+      : [...wishlist, id];
+    setWishlist(newWishlist);
+    localStorage.setItem("wishlist", JSON.stringify(newWishlist));
   };
 
-  const increase = (id) => {
-    updateCart(
-      cart.map((i) =>
-        i.id === id ? { ...i, quantity: i.quantity + 1 } : i
-      )
+  // filter by category first
+  let filteredProducts =
+    category === "all"
+      ? products
+      : products.filter((item) => item.category === category);
+
+  // then filter by search from context
+  if (search) {
+    filteredProducts = filteredProducts.filter((item) =>
+      item.name.toLowerCase().includes(search.toLowerCase())
     );
-  };
-
-  const decrease = (id) => {
-    updateCart(
-      cart.map((i) =>
-        i.id === id
-          ? { ...i, quantity: i.quantity > 1 ? i.quantity - 1 : 1 }
-          : i
-      )
-    );
-  };
-
-  const remove = (id) => {
-    updateCart(cart.filter((i) => i.id !== id));
-  };
-
-  const total = cart.reduce(
-    (sum, item) => sum + item.price * item.quantity,
-    0
-  );
+  }
 
   return (
-    <div className="p-6 bg-gray-50 min-h-screen select-none">
+    <div className="p-6 select-none">
       <h1 className="prata-regular text-2xl md:text-3xl tracking-wide text-[#414141] mb-6">
-        My Cart
+        Our Premium Collection
       </h1>
 
-      {cart.length === 0 ? (
-        <p className="text-gray-500 text-sm">No items in cart</p>
-      ) : (
-        <div className="flex flex-col lg:flex-row gap-6">
-          {/* Cart Items */}
-          <div className="flex-1 grid grid-cols-1 sm:grid-cols-2 gap-5">
-            {cart.map((item) => (
-              <div
-                key={item.id}
-                className="border rounded-lg p-3 bg-white hover:shadow-lg transition cursor-pointer"
+      {/* Category buttons */}
+      <div className="flex gap-3 mb-6 flex-wrap">
+        {["all", "shirt", "pant", "tshirt", "other"].map((cat) => (
+          <button
+            key={cat}
+            onClick={() => setCategory(cat)}
+            className={`px-4 py-1.5 rounded-full text-sm font-medium transition-all duration-300 ${
+              category === cat
+                ? "bg-black text-white shadow-sm"
+                : "bg-gray-100 text-gray-700 hover:bg-black hover:text-white"
+            }`}
+          >
+            {cat.charAt(0).toUpperCase() + cat.slice(1)}
+          </button>
+        ))}
+      </div>
+
+      {/* Products grid */}
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-5">
+        {filteredProducts.length > 0 ? (
+          filteredProducts.map((item) => (
+            <div
+              key={item.id}
+              className="relative border rounded-lg p-3 hover:shadow-lg transition cursor-pointer bg-white"
+            >
+              <button
+                onClick={() => toggleWishlist(item.id)}
+                className="absolute top-3 right-3 text-lg"
               >
+                {wishlist.includes(item.id) ? "❤️" : "🤍"}
+              </button>
+
+              <Link to={`/product/${item.id}`}>
                 <img
                   src={item.image}
                   alt={item.name}
-                  className="w-full h-32 object-cover rounded-md mb-3"
+                  className="w-full h-44 object-cover rounded-md mb-3"
                 />
-                <h2 className="prata-regular text-base tracking-wide text-[#414141] mb-1">
+                <h2 className="prata-regular text-base md:text-lg tracking-wide text-[#414141] mb-1">
                   {item.name}
                 </h2>
-                <p className="text-sm font-semibold text-amber-700 mb-2">
+                <p className="font-semibold text-sm md:text-base text-amber-700 mb-1">
                   ₹{item.price}
                 </p>
-
-                {/* Quantity Controls */}
-                <div className="flex items-center gap-2 mb-3">
-                  <button
-                    onClick={() => decrease(item.id)}
-                    className="px-3 py-1 bg-gray-200 rounded hover:bg-gray-300 transition text-sm"
-                  >
-                    -
-                  </button>
-                  <span className="text-sm">{item.quantity}</span>
-                  <button
-                    onClick={() => increase(item.id)}
-                    className="px-3 py-1 bg-gray-200 rounded hover:bg-gray-300 transition text-sm"
-                  >
-                    +
-                  </button>
-                </div>
-
-                {/* Actions */}
-                <div className="flex gap-2">
-                  <Link
-                    to={`/product/${item.id}`}
-                    className="flex-1 text-center px-3 py-1.5 bg-black text-white rounded-md text-xs hover:bg-gray-900 transition"
-                  >
-                    View
-                  </Link>
-                  <button
-                    onClick={() => remove(item.id)}
-                    className="flex-1 px-3 py-1.5 bg-red-500 text-white rounded-md text-xs hover:bg-red-600 transition"
-                  >
-                    Remove
-                  </button>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* Order Summary */}
-          <div className="w-full lg:w-1/3 border rounded-lg p-5 bg-white shadow-md h-fit">
-            <h2 className="prata-regular text-lg md:text-xl tracking-wide mb-4">
-              Order Summary
-            </h2>
-            <div className="space-y-2 text-sm">
-              {cart.map((item) => (
-                <div
-                  key={item.id}
-                  className="flex justify-between text-gray-700"
-                >
-                  <span>
-                    {item.name} × {item.quantity}
-                  </span>
-                  <span>₹{item.price * item.quantity}</span>
-                </div>
-              ))}
-              <div className="flex justify-between font-semibold text-base border-t pt-2">
-                <span>Total</span>
-                <span>₹{total}</span>
-              </div>
+              </Link>
             </div>
-
-            <Link
-              to="/order"
-              className="block mt-5 w-full bg-black hover:bg-gray-900 text-white py-2 rounded-md text-sm text-center transition"
-            >
-              Checkout
-            </Link>
-          </div>
-        </div>
-      )}
+          ))
+        ) : (
+          <p className="text-gray-500">No products found.</p>
+        )}
+      </div>
     </div>
   );
 }
 
-export default Cart;
+export default Collection;

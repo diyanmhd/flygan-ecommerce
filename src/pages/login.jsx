@@ -1,6 +1,7 @@
-import React, { useEffect, useReducer, useState } from "react";
+import React, { useEffect, useReducer, useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import { UserContext } from "../components/UserContext"; // import UserContext
 
 function reduce(prev, action) {
   switch (action.type) {
@@ -18,6 +19,7 @@ function reduce(prev, action) {
 function Login() {
   const nav = useNavigate();
   const [cred, setCred] = useState([]);
+  const { setUser } = useContext(UserContext); // get setUser from context
 
   useEffect(() => {
     async function Getcred() {
@@ -48,7 +50,8 @@ function Login() {
     if (!user) {
       dispatch({ type: "error", payLoad: "Invalid email or password" });
     } else {
-      localStorage.setItem("userId", user.id); // store user id
+      // ✅ Update UserContext immediately
+      setUser(user); 
       nav("/"); // go to home page
     }
   }
