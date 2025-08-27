@@ -50,7 +50,7 @@ function Login() {
     if (!user) {
       dispatch({ type: "error", payLoad: "Invalid email or password" });
     } else {
-      // ✅ Update UserContext immediately
+      //  Update UserContext immediately
       setUser(user); 
       nav("/"); // go to home page
     }

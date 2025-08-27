@@ -35,10 +35,10 @@ function Register() {
 
       alert("User registered successfully");
 
-      // ✅ Log in automatically by updating UserContext
-      setUser(response.data);
+      //  Log in automatically by updating UserContext
+      // setUser(response.data);
 
-      nav("/"); // go to home page
+      nav("/login"); // go to home page
     } catch (error) {
       alert("Registration failed");
       console.error(error);

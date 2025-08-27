@@ -1,48 +1,89 @@
-import './App.css';
-import { Routes, Route, Navigate } from 'react-router-dom';
-import Navbar from './components/navbar';
-import Home from './pages/home';
-import Collection from './pages/collection';
-import ProductDetails from './pages/prdouctdetails';
-import Wishlist from './pages/wishlist';
-import Cart from './pages/cart';
-import Order from './pages/order';
-import Login from './pages/login';
-import Register from './pages/register';
-import { SearchProvider } from './components/search';
-import { UserProvider, UserContext } from './components/UserContext';
+import "./App.css";
+import { Routes, Route, Navigate, useLocation } from "react-router-dom";
+import Navbar from "./components/navbar";
+import Home from "./pages/home";
+import Collection from "./pages/collection";
+import ProductDetails from "./pages/prdouctdetails";
+import Wishlist from "./pages/wishlist";
+import Cart from "./pages/cart";
+import Order from "./pages/order";
+import Login from "./pages/login";
+import Register from "./pages/register";
+import { SearchProvider } from "./components/search";
+import { UserProvider, UserContext } from "./components/UserContext";
 
 function App() {
+  const location = useLocation();
+
+  
+  const ProtectedRoute = ({ children }) => (
+    <UserContext.Consumer>
+      {({ user }) => (user ? children : <Navigate to="/login" replace />)}
+    </UserContext.Consumer>
+  );
+
+  
+  const AuthRoute = ({ children }) => (
+    <UserContext.Consumer>
+      {({ user }) => (user ? <Navigate to="/" replace /> : children)}
+    </UserContext.Consumer>
+  );
+
+  
+  const hideNavbar =
+    location.pathname === "/login" || location.pathname === "/register";
+
   return (
-    <UserProvider> {/* ✅ wrap first */}
+    <UserProvider>
       <SearchProvider>
-        <Navbar />
+        {!hideNavbar && <Navbar />}
         <Routes>
-          <Route path='/' element={<Home />} />
+          {/* Public routes */}
+          <Route path="/" element={<Home />} />
+          <Route path="/collection" element={<Collection />} />
+          <Route path="/product/:id" element={<ProductDetails />} />
 
-          {/* if logged in → go to home, else show login/register */}
           <Route
-            path='/login'
+            path="/login"
             element={
-              <UserContext.Consumer>
-                {({ user }) => (user ? <Navigate to="/" /> : <Login />)}
-              </UserContext.Consumer>
+              <AuthRoute>
+                <Login />
+              </AuthRoute>
             }
           />
           <Route
-            path='/register'
+            path="/register"
             element={
-              <UserContext.Consumer>
-                {({ user }) => (user ? <Navigate to="/" /> : <Register />)}
-              </UserContext.Consumer>
+              <AuthRoute>
+                <Register />
+              </AuthRoute>
             }
           />
 
-          <Route path='/collection' element={<Collection />} />
-          <Route path='/product/:id' element={<ProductDetails />} />
-          <Route path='/wishlist' element={<Wishlist />} />
-          <Route path='/cart' element={<Cart />} />
-          <Route path='/order' element={<Order />} />
+          <Route
+            path="/wishlist"
+            element={
+              <ProtectedRoute>
+                <Wishlist />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/cart"
+            element={
+              <ProtectedRoute>
+                <Cart />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/order"
+            element={
+              <ProtectedRoute>
+                <Order />
+              </ProtectedRoute>
+            }
+          />
         </Routes>
       </SearchProvider>
     </UserProvider>
