@@ -108,7 +108,7 @@ function Order() {
                     <p className="mt-1 text-sm text-gray-500">Quantity: {item.quantity}</p>
                   </div>
                   <div className="ml-4">
-                    <p className="text-sm font-medium text-gray-900">₹{item.price * item.quantity}</p>
+                    <p className="text-sm font-medium text-gray-900">${item.price * item.quantity}</p>
                   </div>
                 </div>
               ))}
@@ -118,7 +118,7 @@ function Order() {
           <div className="flex justify-between items-center border-t pt-6">
             <div>
               <p className="text-sm text-gray-500">Total Amount</p>
-              <p className="text-2xl font-bold text-gray-900">₹{order.total}</p>
+              <p className="text-2xl font-bold text-gray-900">${order.total}</p>
             </div>
             <div className="flex space-x-4">
               <Link to="/collection" className="px-6 py-2 border border-gray-300 rounded-md text-sm font-medium text-gray-700 hover:bg-gray-50">
@@ -240,7 +240,7 @@ function Order() {
                       <p className="mt-1 text-sm text-gray-500">Size: {item.size || "M"}, Qty: {item.quantity}</p>
                     </div>
                     <div className="ml-4">
-                      <p className="text-sm font-medium text-gray-900">₹{item.price * item.quantity}</p>
+                      <p className="text-sm font-medium text-gray-900">${item.price * item.quantity}</p>
                     </div>
                   </div>
                 ))}
@@ -255,11 +255,11 @@ function Order() {
               <div className="space-y-3 mb-6">
                 <div className="flex justify-between">
                   <span className="text-gray-600">Subtotal</span>
-                  <span className="font-medium">₹{subtotal}</span>
+                  <span className="font-medium">${subtotal}</span>
                 </div>
                 <div className="border-t pt-3 flex justify-between text-lg font-semibold">
                   <span>Total</span>
-                  <span>₹{total}</span>
+                  <span>${total}</span>
                 </div>
               </div>
 
@@ -277,7 +277,7 @@ function Order() {
                     Processing...
                   </>
                 ) : (
-                  `Place Order • ₹${total}`
+                  `Place Order • $${total}`
                 )}
               </button>
 

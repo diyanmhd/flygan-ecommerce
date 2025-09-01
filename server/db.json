@@ -1,362 +1,37 @@
 {
   "users": [
     {
-      "id": "c494",
-      "name": "mohammed diyan",
-      "email": "diyanafz9@gmail.com",
-      "password": "diyan123",
-      "role": "user",
+      "id": "b2b3",
+      "name": "admin",
+      "email": "admin@gmail.com",
+      "password": "admin@gmail.com",
+      "role": "admin",
       "cart": [],
       "wishlist": [],
-      "order": []
+      "order": [],
+      "status": "Active"
     },
     {
-      "id": "f717",
-      "name": "anas",
-      "email": "anas@gmail.com",
-      "password": "cascsdcsdcdscs",
+      "id": "d164",
+      "name": "ajay",
+      "email": "ajay@gmail.com",
+      "password": "ajay@gmail.com",
       "role": "user",
       "cart": [],
       "wishlist": [],
-      "order": []
+      "order": [],
+      "status": "Active"
     },
     {
-      "id": "21a4",
-      "name": "finan",
-      "email": "finan@gmail.com",
-      "password": "12345",
+      "id": "4910",
+      "name": "risal",
+      "email": "risal@gmail.com",
+      "password": "risal@gmail.com",
       "role": "user",
       "cart": [],
       "wishlist": [],
-      "order": []
-    },
-    {
-      "id": "1f74",
-      "name": "aimen",
-      "email": "aimen@gmail.com",
-      "password": "12345",
-      "role": "user",
-      "cart": [],
-      "wishlist": [],
-      "order": []
-    },
-    {
-      "id": "b11a",
-      "name": "rizal",
-      "email": "rizal@gmail.com",
-      "password": "12345",
-      "role": "user",
-      "cart": [],
-      "wishlist": [],
-      "order": []
-    },
-    {
-      "id": "4e24",
-      "name": "diyan",
-      "email": "diyan@gmail.com",
-      "password": "12345",
-      "role": "user",
-      "cart": [],
-      "wishlist": [],
-      "order": []
-    },
-    {
-      "id": "df72",
-      "name": "dhanus",
-      "email": "dhanus@gmail.com",
-      "password": "1234567",
-      "role": "user",
-      "cart": [],
-      "wishlist": [],
-      "order": []
-    },
-    {
-      "id": "92bc",
-      "name": "amina",
-      "email": "amina@gmail.com",
-      "password": "12345",
-      "role": "user",
-      "cart": [],
-      "wishlist": [],
-      "order": []
-    },
-    {
-      "id": "a743",
-      "name": "hemin",
-      "email": "hemin@gmail.com",
-      "password": "12345",
-      "role": "user",
-      "cart": [],
-      "wishlist": [],
-      "order": []
-    },
-    {
-      "id": "9daf",
-      "name": "mufeeda",
-      "email": "mufeeda@gmail.com",
-      "password": "123456",
-      "role": "user",
-      "cart": [],
-      "wishlist": [],
-      "order": []
-    },
-    {
-      "id": "51fb",
-      "name": "hadiya",
-      "email": "hadiya@gmail.comm",
-      "password": "12345",
-      "role": "user",
-      "cart": [],
-      "wishlist": [],
-      "order": []
-    },
-    {
-      "id": "72be",
-      "name": "safeena",
-      "email": "safeena@gmail.com",
-      "password": "12345",
-      "role": "user",
-      "cart": [],
-      "wishlist": [],
-      "order": []
-    },
-    {
-      "id": "3278",
-      "name": "adwaid",
-      "email": "adwaid@gmail.com",
-      "password": "adwaid@gmail.com",
-      "role": "user",
-      "cart": [],
-      "wishlist": [],
-      "order": []
-    },
-    {
-      "id": "4428",
-      "name": "ad",
-      "email": "ad@g",
-      "password": "adw",
-      "role": "user",
-      "cart": [],
-      "wishlist": [],
-      "order": []
-    },
-    {
-      "id": "16be",
-      "name": "diyanali",
-      "email": "diyanali@gmail.com",
-      "password": "diyanali@gmail.com",
-      "role": "user",
-      "cart": [],
-      "wishlist": [],
-      "order": []
-    },
-    {
-      "id": "c6c3",
-      "name": "risana",
-      "email": "risana@gmail.com",
-      "password": "risana@gmail.com",
-      "role": "user",
-      "cart": [],
-      "wishlist": [],
-      "order": []
-    },
-    {
-      "id": "a727",
-      "name": "hdn",
-      "email": "hend@gmail.com",
-      "password": "hend@gmail.com",
-      "role": "user",
-      "cart": [],
-      "wishlist": [],
-      "order": []
-    },
-    {
-      "id": "e97d",
-      "name": "haris",
-      "email": "haris@gmail.comm",
-      "password": "haris@gmail.comm",
-      "role": "user",
-      "cart": [],
-      "wishlist": [],
-      "order": []
-    },
-    {
-      "id": "8182",
-      "name": "hud",
-      "email": "hud@gmail",
-      "password": "hud@gmail",
-      "role": "user",
-      "cart": [],
-      "wishlist": [],
-      "order": []
-    },
-    {
-      "id": "2f1b",
-      "name": "dsa",
-      "email": "sasd2ds2@ddcz",
-      "password": "sasd2ds2@ddcz",
-      "role": "user",
-      "cart": [],
-      "wishlist": [],
-      "order": []
-    },
-    {
-      "id": "3c98",
-      "name": "abi",
-      "email": "abi@gmail.com",
-      "password": "abi@gmail.com",
-      "role": "user",
-      "cart": [],
-      "wishlist": [],
-      "order": []
-    },
-    {
-      "id": "2684",
-      "name": "hadiya",
-      "email": "hadiya@gmail.com",
-      "password": "hadiya@gmail.com",
-      "role": "user",
-      "cart": [],
-      "wishlist": [],
-      "order": []
-    },
-    {
-      "id": "d73a",
-      "name": "adil",
-      "email": "adil@gmail.com",
-      "password": "adil@gmail.com",
-      "role": "user",
-      "cart": [],
-      "wishlist": [],
-      "order": []
-    },
-    {
-      "id": "702d",
-      "name": "def",
-      "email": "def@gmail.com",
-      "password": "def@gmail.com",
-      "role": "user",
-      "cart": [],
-      "wishlist": [],
-      "order": []
-    },
-    {
-      "id": "17fe",
-      "name": "fajar",
-      "email": "fajar@gmail.com",
-      "password": "fajar@gmail.com",
-      "role": "user",
-      "cart": [],
-      "wishlist": [],
-      "order": []
-    },
-    {
-      "id": "54f0",
-      "name": "user",
-      "email": "user@gmail.com",
-      "password": "user@gmail.com",
-      "role": "user",
-      "cart": [],
-      "wishlist": [],
-      "order": []
-    },
-    {
-      "id": "c514",
-      "name": "amina",
-      "email": "aminahiba@gmail.com",
-      "password": "aminahiba@gmail.com",
-      "role": "user",
-      "cart": [],
-      "wishlist": [],
-      "order": []
-    },
-    {
-      "id": "9095",
-      "name": "ali",
-      "email": "ali@gmail.com",
-      "password": "ali@gmail.com",
-      "role": "user",
-      "cart": [],
-      "wishlist": [],
-      "order": []
-    },
-    {
-      "id": "a783",
-      "name": "favas",
-      "email": "favaas@hgmail.com",
-      "password": "favaas@hgmail.com",
-      "role": "user",
-      "cart": [],
-      "wishlist": [],
-      "order": []
-    },
-    {
-      "id": "ed75",
-      "name": "suhail",
-      "email": "suhail@gmail.com",
-      "password": "suhail@gmail.com",
-      "role": "user",
-      "cart": [],
-      "wishlist": [],
-      "order": []
-    },
-    {
-      "id": "4172",
-      "name": "fth",
-      "email": "fth@gmail.com",
-      "password": "fth@gmail.com",
-      "role": "user",
-      "cart": [],
-      "wishlist": [],
-      "order": []
-    },
-    {
-      "id": "1062",
-      "name": "abdu",
-      "role": "user",
-      "cart": [],
-      "wishlist": [],
-      "order": []
-    },
-    {
-      "id": "b6cf",
-      "name": "abdu",
-      "email": "abdu@gmail.com",
-      "password": "123456",
-      "role": "user",
-      "cart": [],
-      "wishlist": [],
-      "order": []
-    },
-    {
-      "id": "bda5",
-      "name": "feris",
-      "email": "feris@gmail.com",
-      "password": "12345",
-      "role": "user",
-      "cart": [],
-      "wishlist": [],
-      "order": []
-    },
-    {
-      "id": "dcb1",
-      "name": "anas",
-      "email": "anas@gmail.com",
-      "password": "1234",
-      "role": "user",
-      "cart": [],
-      "wishlist": [],
-      "order": []
-    },
-    {
-      "id": "0992",
-      "name": "adil",
-      "email": "adil@gmail.com",
-      "password": "adil@gmail.com",
-      "role": "user",
-      "cart": [],
-      "wishlist": [],
-      "order": []
+      "order": [],
+      "status": "Active"
     }
   ],
   "products": [
@@ -435,7 +110,8 @@
       "name": "Khaki Cargo Pants",
       "price": 2200,
       "image": "https://thumbs.dreamstime.com/b/cargo-pants-men-flat-isolated-white-background-cargo-pants-isolated-white-137439939.jpg",
-      "category": "pant"
+      "category": "pant",
+      "stock": 10
     },
     {
       "id": "12",
@@ -449,7 +125,8 @@
       "name": "Beige Slim Fit Trousers",
       "price": 1999,
       "image": "https://imagescdn.thecollective.in/img/app/product/1/1099511-18586684.jpg?asp=true&crop=700&auto=format",
-      "category": "pant"
+      "category": "pant",
+      "stock": 5
     },
     {
       "id": "14",
@@ -463,7 +140,8 @@
       "name": "Grey Zip-Up Hoodie",
       "price": 3500,
       "image": "https://t3.ftcdn.net/jpg/13/59/39/94/360_F_1359399455_VT842UWU44Xr1oFMMxVNmYJmZncxN3T0.jpg",
-      "category": "other"
+      "category": "tshirt",
+      "stock": 10
     },
     {
       "id": "16",
@@ -527,745 +205,139 @@
       "price": 5000,
       "image": "https://titanworld.com/cdn/shop/files/1595WL01.jpg?v=1706539728",
       "category": "other"
+    },
+    {
+      "id": "9459",
+      "name": "grrensih",
+      "price": 2500,
+      "category": "shirt",
+      "stock": 20,
+      "description": "",
+      "image": "https://static.vecteezy.com/system/resources/thumbnails/049/540/079/small/blank-green-short-sleeve-t-shirt-mockup-on-white-background-photo.jpeg",
+      "rating": 0
     }
   ],
   "orders": [
     {
-      "id": "ddfd",
-      "userId": "df72",
-      "items": [
-        {
-          "id": "2",
-          "name": "Blue Denim Shirt",
-          "price": 34.99,
-          "image": "https://media.istockphoto.com/id/584479824/photo/blue-jean-shirt-isolated-on-white-background.jpg?s=612x612&w=0&k=20&c=_yZ_NkKcn_P-eFVlqtB2RsAx8A9sFEQIjSU_xTwIFdY=",
-          "category": "shirt",
-          "quantity": 1
-        }
-      ],
-      "address": "Flat 201, Sunshine Apartments, Hyderabad - 500032",
-      "payment": "cod",
-      "total": 34.99,
-      "status": "Pending",
-      "date": "8/22/2025, 3:27:52 PM"
-    },
-    {
-      "id": "2bc2",
-      "userId": "df72",
-      "items": [
-        {
-          "id": "2",
-          "name": "Blue Denim Shirt",
-          "price": 34.99,
-          "image": "https://media.istockphoto.com/id/584479824/photo/blue-jean-shirt-isolated-on-white-background.jpg?s=612x612&w=0&k=20&c=_yZ_NkKcn_P-eFVlqtB2RsAx8A9sFEQIjSU_xTwIFdY=",
-          "category": "shirt",
-          "quantity": 1
-        }
-      ],
-      "address": "calicut",
-      "payment": "cod",
-      "total": 34.99,
-      "status": "Pending",
-      "date": "8/22/2025, 3:29:32 PM"
-    },
-    {
-      "id": "9deb",
-      "userId": "df72",
+      "id": "9e3e",
+      "userId": "d164",
       "items": [
         {
           "id": "3",
           "name": "Royalblue Formal Shirt",
-          "price": 39.99,
-          "image": "https://imagescdn.thecollective.in/img/app/product/4/457000-3660648.jpg?asp=true&crop=700&auto=format",
+          "price": 2999,
+          "image": "https://image.hm.com/assets/hm/33/36/3336173869c79f7325590f8c903aaab83ac9428f.jpg?imwidth=396",
           "category": "shirt",
           "quantity": 1
         }
       ],
-      "address": "sd",
+      "address": "tihsisfromareeekad",
       "payment": "cod",
-      "total": 39.99,
+      "total": 2999,
       "status": "Pending",
-      "date": "8/22/2025, 3:31:34 PM"
+      "date": "9/1/2025, 4:18:09 PM",
+      "orderId": "ORD1756723689432"
     },
     {
-      "id": "0fef",
-      "userId": "b11a",
+      "id": "7b1e",
+      "userId": "d164",
       "items": [
-        {
-          "id": "3",
-          "name": "Royalblue Formal Shirt",
-          "price": 39.99,
-          "image": "https://imagescdn.thecollective.in/img/app/product/4/457000-3660648.jpg?asp=true&crop=700&auto=format",
-          "category": "shirt",
-          "quantity": 1
-        }
-      ],
-      "address": "dgadbdgh",
-      "payment": "cod",
-      "total": 39.99,
-      "status": "Pending",
-      "date": "8/22/2025, 4:17:59 PM"
-    },
-    {
-      "id": "978d",
-      "userId": "b11a",
-      "items": [
-        {
-          "id": "1",
-          "name": "Classic black Shirt",
-          "price": 29.99,
-          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfeU3bq3ucG734hD1lOVv3F-r_j_j1gcoQ9Q&s",
-          "category": "shirt",
-          "quantity": 2
-        },
         {
           "id": "2",
           "name": "Blue Denim Shirt",
-          "price": 34.99,
+          "price": 2999,
           "image": "https://media.istockphoto.com/id/584479824/photo/blue-jean-shirt-isolated-on-white-background.jpg?s=612x612&w=0&k=20&c=_yZ_NkKcn_P-eFVlqtB2RsAx8A9sFEQIjSU_xTwIFdY=",
+          "category": "shirt",
+          "quantity": 1
+        },
+        {
+          "id": "4",
+          "name": "Plaid Flannel Shirt",
+          "price": 2500,
+          "image": "https://m.media-amazon.com/images/I/81igzsm5cFL._UY1100_.jpg",
+          "category": "shirt",
+          "quantity": 1
+        },
+        {
+          "id": "7",
+          "name": "Olive Green Shirt",
+          "price": 2999,
+          "image": "https://imagescdn.thecollective.in/img/app/product/1/1056944-15402101.jpg?asp=true&crop=700&auto=format",
           "category": "shirt",
           "quantity": 1
         }
       ],
-      "address": "areekad calicut",
+      "address": "dfgdfgdfgdgdfggdg",
       "payment": "cod",
-      "total": 94.97,
+      "total": 8498,
       "status": "Pending",
-      "date": "8/22/2025, 4:26:08 PM"
+      "date": "9/1/2025, 4:23:17 PM",
+      "orderId": "ORD1756723997867"
     },
     {
-      "id": "ee88",
-      "userId": "b11a",
+      "id": "8126",
+      "userId": "4910",
       "items": [
+        {
+          "id": "5",
+          "name": "Grey Polo Shirt",
+          "price": 1499,
+          "image": "https://st2.depositphotos.com/4192645/6758/i/450/depositphotos_67585911-stock-photo-t-shirt-front-view-on.jpg",
+          "category": "tshirt",
+          "quantity": 1
+        },
         {
           "id": "3",
           "name": "Royalblue Formal Shirt",
-          "price": 39.99,
-          "image": "https://imagescdn.thecollective.in/img/app/product/4/457000-3660648.jpg?asp=true&crop=700&auto=format",
-          "category": "shirt",
-          "quantity": 1
-        }
-      ],
-      "address": "z",
-      "payment": "cod",
-      "total": 39.99,
-      "status": "Pending",
-      "date": "8/22/2025, 4:28:34 PM"
-    },
-    {
-      "id": "42f1",
-      "userId": "b11a",
-      "items": [
-        {
-          "id": "1",
-          "name": "Classic black Shirt",
-          "price": 29.99,
-          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfeU3bq3ucG734hD1lOVv3F-r_j_j1gcoQ9Q&s",
-          "category": "shirt",
-          "quantity": 1
-        }
-      ],
-      "address": "tertr",
-      "payment": "cod",
-      "total": 29.99,
-      "status": "Pending",
-      "date": "8/22/2025, 4:31:30 PM"
-    },
-    {
-      "id": "68fa",
-      "userId": "b11a",
-      "items": [
-        {
-          "id": "1",
-          "name": "Classic black Shirt",
-          "price": 29.99,
-          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfeU3bq3ucG734hD1lOVv3F-r_j_j1gcoQ9Q&s",
+          "price": 2999,
+          "image": "https://image.hm.com/assets/hm/33/36/3336173869c79f7325590f8c903aaab83ac9428f.jpg?imwidth=396",
           "category": "shirt",
           "quantity": 1
         },
         {
-          "id": "2",
-          "name": "Blue Denim Shirt",
-          "price": 34.99,
-          "image": "https://media.istockphoto.com/id/584479824/photo/blue-jean-shirt-isolated-on-white-background.jpg?s=612x612&w=0&k=20&c=_yZ_NkKcn_P-eFVlqtB2RsAx8A9sFEQIjSU_xTwIFdY=",
-          "category": "shirt",
-          "quantity": 1
-        }
-      ],
-      "address": "saxa",
-      "payment": "card",
-      "total": 64.98,
-      "status": "Pending",
-      "date": "8/22/2025, 4:52:28 PM"
-    },
-    {
-      "id": "bd2f",
-      "userId": "9daf",
-      "items": [
-        {
-          "id": "6",
-          "name": "Striped Casual Shirt",
-          "price": 31.49,
-          "image": "https://imagescdn.thecollective.in/img/app/product/8/885086-10647567.jpg",
-          "category": "shirt",
-          "quantity": 1
-        },
-        {
-          "id": "12",
-          "name": "Formal Black Trousers",
-          "price": 54.99,
-          "image": "https://www.shutterstock.com/image-photo/front-views-black-men-trousers-600nw-1429241312.jpg",
-          "category": "pant",
-          "quantity": 1
-        },
-        {
-          "id": "20",
-          "name": "Black Leather Shoes",
-          "price": 79.99,
-          "image": "https://img.freepik.com/premium-vector/realistic-vector-black-leather-shoes-luxury-men-white-background_33869-4218.jpg",
+          "id": "16",
+          "name": "Classic Black Blazer",
+          "price": 6999,
+          "image": "https://media.istockphoto.com/id/1154938567/photo/black-men-jacket.jpg?s=612x612&w=0&k=20&c=iKfOz0jW0m15EMCbNFBlkClHUk1v5RJ0iRYAUludZQw=",
           "category": "other",
           "quantity": 1
         }
       ],
-      "address": "mufeeda house mannarkad",
+      "address": "sdfdsfsxfszxfzdfszsdczsdfcvz",
       "payment": "cod",
-      "total": 166.47,
-      "status": "Pending",
-      "date": "8/22/2025, 4:59:58 PM"
+      "total": 11497,
+      "status": "Processing",
+      "date": "9/1/2025, 4:35:17 PM",
+      "orderId": "ORD1756724717217"
     },
     {
-      "id": "2026",
-      "userId": "72be",
+      "id": "a3eb",
+      "userId": "d164",
       "items": [
         {
-          "id": "3",
-          "name": "Royalblue Formal Shirt",
-          "price": 39.99,
-          "image": "https://imagescdn.thecollective.in/img/app/product/4/457000-3660648.jpg?asp=true&crop=700&auto=format",
+          "id": "2",
+          "name": "Blue Denim Shirt",
+          "price": 2999,
+          "image": "https://media.istockphoto.com/id/584479824/photo/blue-jean-shirt-isolated-on-white-background.jpg?s=612x612&w=0&k=20&c=_yZ_NkKcn_P-eFVlqtB2RsAx8A9sFEQIjSU_xTwIFdY=",
           "category": "shirt",
-          "quantity": 3
-        }
-      ],
-      "address": "pp house kalathil thodi",
-      "payment": "cod",
-      "total": 119.97,
-      "status": "Pending",
-      "date": "8/23/2025, 11:58:04 AM"
-    },
-    {
-      "id": "9314",
-      "userId": "3278",
-      "items": [
+          "quantity": 1
+        },
         {
-          "id": "10",
-          "name": "Grey Chinos",
-          "price": 39.49,
-          "image": "https://media.istockphoto.com/id/1440042031/photo/fashionable-gray-pants-isolated-in-white-background-invisible-mannequin.jpg?s=612x612&w=0&k=20&c=UEG4YZYsEsF-PIQUkJiFZfZTOAdRtpKmyvWx3su9KyI=",
+          "id": "11",
+          "name": "Khaki Cargo Pants",
+          "price": 2200,
+          "image": "https://thumbs.dreamstime.com/b/cargo-pants-men-flat-isolated-white-background-cargo-pants-isolated-white-137439939.jpg",
           "category": "pant",
+          "stock": 10,
           "quantity": 1
         }
       ],
-      "address": "abcd",
-      "payment": "card",
-      "total": 39.49,
-      "status": "Pending",
-      "date": "8/23/2025, 12:48:28 PM"
-    },
-    {
-      "id": "e403",
-      "userId": "16be",
-      "items": [
-        {
-          "id": "2",
-          "name": "Blue Denim Shirt",
-          "price": 34.99,
-          "image": "https://media.istockphoto.com/id/584479824/photo/blue-jean-shirt-isolated-on-white-background.jpg?s=612x612&w=0&k=20&c=_yZ_NkKcn_P-eFVlqtB2RsAx8A9sFEQIjSU_xTwIFdY=",
-          "category": "shirt",
-          "quantity": 3
-        }
-      ],
-      "address": "t",
+      "address": "nvhjvjvjvjvgjcjcjcjc",
       "payment": "cod",
-      "total": 104.97,
-      "status": "Pending",
-      "date": "8/23/2025, 1:10:22 PM"
-    },
-    {
-      "id": "e5b4",
-      "userId": "c6c3",
-      "items": [
-        {
-          "id": "1",
-          "name": "Classic black Shirt",
-          "price": 29.99,
-          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfeU3bq3ucG734hD1lOVv3F-r_j_j1gcoQ9Q&s",
-          "category": "shirt",
-          "quantity": 1
-        },
-        {
-          "id": "10",
-          "name": "Grey Chinos",
-          "price": 39.49,
-          "image": "https://media.istockphoto.com/id/1440042031/photo/fashionable-gray-pants-isolated-in-white-background-invisible-mannequin.jpg?s=612x612&w=0&k=20&c=UEG4YZYsEsF-PIQUkJiFZfZTOAdRtpKmyvWx3su9KyI=",
-          "category": "pant",
-          "quantity": 1
-        },
-        {
-          "id": "19",
-          "name": "Black Sneakers",
-          "price": 64.99,
-          "image": "https://nothingnew.com/cdn/shop/products/1024x1024-NothingNew-LowTop-Black_White-031122-3.4BlackLaces_1024x1024.jpg?v=1686931095",
-          "category": "other",
-          "quantity": 1
-        }
-      ],
-      "address": "waynad",
-      "payment": "cod",
-      "total": 134.47,
-      "status": "Pending",
-      "date": "8/23/2025, 1:43:39 PM"
-    },
-    {
-      "id": "74a2",
-      "userId": "e97d",
-      "items": [
-        {
-          "id": "2",
-          "name": "Blue Denim Shirt",
-          "price": 34.99,
-          "image": "https://media.istockphoto.com/id/584479824/photo/blue-jean-shirt-isolated-on-white-background.jpg?s=612x612&w=0&k=20&c=_yZ_NkKcn_P-eFVlqtB2RsAx8A9sFEQIjSU_xTwIFdY=",
-          "category": "shirt",
-          "quantity": 4
-        }
-      ],
-      "address": "dc",
-      "payment": "cod",
-      "total": 139.96,
-      "status": "Pending",
-      "date": "8/23/2025, 7:29:46 PM"
-    },
-    {
-      "id": "ba42",
-      "userId": "2f1b",
-      "items": [
-        {
-          "id": "3",
-          "name": "Royalblue Formal Shirt",
-          "price": 39.99,
-          "image": "https://imagescdn.thecollective.in/img/app/product/4/457000-3660648.jpg?asp=true&crop=700&auto=format",
-          "category": "shirt",
-          "quantity": 1
-        }
-      ],
-      "address": "cdv",
-      "payment": "card",
-      "total": 39.99,
-      "status": "Pending",
-      "date": "8/23/2025, 7:41:09 PM"
-    },
-    {
-      "id": "3258",
-      "userId": "3c98",
-      "items": [
-        {
-          "id": "2",
-          "name": "Blue Denim Shirt",
-          "price": 34.99,
-          "image": "https://media.istockphoto.com/id/584479824/photo/blue-jean-shirt-isolated-on-white-background.jpg?s=612x612&w=0&k=20&c=_yZ_NkKcn_P-eFVlqtB2RsAx8A9sFEQIjSU_xTwIFdY=",
-          "category": "shirt",
-          "quantity": 3
-        }
-      ],
-      "address": "gufu",
-      "payment": "cod",
-      "total": 104.97,
-      "status": "Pending",
-      "date": "8/24/2025, 11:54:24 AM"
-    },
-    {
-      "id": "6f20",
-      "userId": "3c98",
-      "items": [
-        {
-          "id": "1",
-          "name": "Classic black Shirt",
-          "price": 29.99,
-          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfeU3bq3ucG734hD1lOVv3F-r_j_j1gcoQ9Q&s",
-          "category": "shirt",
-          "quantity": 1
-        }
-      ],
-      "address": "fht",
-      "payment": "cod",
-      "total": 29.99,
-      "status": "Pending",
-      "date": "8/24/2025, 12:06:39 PM"
-    },
-    {
-      "id": "197d",
-      "userId": "2684",
-      "items": [
-        {
-          "id": "1",
-          "name": "Classic black Shirt",
-          "price": 29.99,
-          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfeU3bq3ucG734hD1lOVv3F-r_j_j1gcoQ9Q&s",
-          "category": "shirt",
-          "quantity": 1
-        }
-      ],
-      "address": "pp house",
-      "payment": "cod",
-      "total": 29.99,
-      "status": "Pending",
-      "date": "8/24/2025, 12:28:30 PM"
-    },
-    {
-      "id": "ad1f",
-      "userId": "72be",
-      "items": [
-        {
-          "id": "2",
-          "name": "Blue Denim Shirt",
-          "price": 34.99,
-          "image": "https://media.istockphoto.com/id/584479824/photo/blue-jean-shirt-isolated-on-white-background.jpg?s=612x612&w=0&k=20&c=_yZ_NkKcn_P-eFVlqtB2RsAx8A9sFEQIjSU_xTwIFdY=",
-          "category": "shirt",
-          "quantity": 1
-        }
-      ],
-      "address": "zxzx",
-      "payment": "cod",
-      "total": 34.99,
-      "status": "Pending",
-      "date": "8/24/2025, 4:37:51 PM"
-    },
-    {
-      "id": "8d71",
-      "userId": "72be",
-      "items": [
-        {
-          "id": "2",
-          "name": "Blue Denim Shirt",
-          "price": 34.99,
-          "image": "https://media.istockphoto.com/id/584479824/photo/blue-jean-shirt-isolated-on-white-background.jpg?s=612x612&w=0&k=20&c=_yZ_NkKcn_P-eFVlqtB2RsAx8A9sFEQIjSU_xTwIFdY=",
-          "category": "shirt",
-          "quantity": 2
-        }
-      ],
-      "address": "hfdhhjhjdhjh",
-      "payment": "cod",
-      "total": 69.98,
-      "status": "Pending",
-      "date": "8/24/2025, 4:43:45 PM",
-      "orderId": "ORD1756034025895"
-    },
-    {
-      "id": "040a",
-      "userId": "54f0",
-      "items": [
-        {
-          "id": "2",
-          "name": "Blue Denim Shirt",
-          "price": 34.99,
-          "image": "https://media.istockphoto.com/id/584479824/photo/blue-jean-shirt-isolated-on-white-background.jpg?s=612x612&w=0&k=20&c=_yZ_NkKcn_P-eFVlqtB2RsAx8A9sFEQIjSU_xTwIFdY=",
-          "category": "shirt",
-          "quantity": 1
-        }
-      ],
-      "address": "ajskskjdkasj\n",
-      "payment": "cod",
-      "total": 34.99,
-      "status": "Pending",
-      "date": "8/24/2025, 6:10:41 PM",
-      "orderId": "ORD1756039241560"
-    },
-    {
-      "id": "007f",
-      "userId": "54f0",
-      "items": [
-        {
-          "id": "2",
-          "name": "Blue Denim Shirt",
-          "price": 34.99,
-          "image": "https://media.istockphoto.com/id/584479824/photo/blue-jean-shirt-isolated-on-white-background.jpg?s=612x612&w=0&k=20&c=_yZ_NkKcn_P-eFVlqtB2RsAx8A9sFEQIjSU_xTwIFdY=",
-          "category": "shirt",
-          "quantity": 1
-        }
-      ],
-      "address": "jyadgjytyguh",
-      "payment": "cod",
-      "total": 34.99,
-      "status": "Pending",
-      "date": "8/24/2025, 6:11:42 PM",
-      "orderId": "ORD1756039302434"
-    },
-    {
-      "id": "8b3a",
-      "userId": "54f0",
-      "items": [
-        {
-          "id": "2",
-          "name": "Blue Denim Shirt",
-          "price": 34.99,
-          "image": "https://media.istockphoto.com/id/584479824/photo/blue-jean-shirt-isolated-on-white-background.jpg?s=612x612&w=0&k=20&c=_yZ_NkKcn_P-eFVlqtB2RsAx8A9sFEQIjSU_xTwIFdY=",
-          "category": "shirt",
-          "quantity": 1
-        }
-      ],
-      "address": "adsfdfghjkfgg",
-      "payment": "cod",
-      "total": 34.99,
-      "status": "Pending",
-      "date": "8/24/2025, 6:12:12 PM",
-      "orderId": "ORD1756039332472"
-    },
-    {
-      "id": "127c",
-      "userId": "c514",
-      "items": [
-        {
-          "id": "2",
-          "name": "Blue Denim Shirt",
-          "price": 34.99,
-          "image": "https://media.istockphoto.com/id/584479824/photo/blue-jean-shirt-isolated-on-white-background.jpg?s=612x612&w=0&k=20&c=_yZ_NkKcn_P-eFVlqtB2RsAx8A9sFEQIjSU_xTwIFdY=",
-          "category": "shirt",
-          "quantity": 1
-        },
-        {
-          "id": "15",
-          "name": "Grey Zip-Up Hoodie",
-          "price": 57.49,
-          "image": "https://t3.ftcdn.net/jpg/13/59/39/94/360_F_1359399455_VT842UWU44Xr1oFMMxVNmYJmZncxN3T0.jpg",
-          "category": "other",
-          "quantity": 1
-        }
-      ],
-      "address": "ddyrttytrhtjhdyjyyjtjy",
-      "payment": "cod",
-      "total": 92.48,
-      "status": "Pending",
-      "date": "8/24/2025, 9:39:23 PM",
-      "orderId": "ORD1756051763985"
-    },
-    {
-      "id": "1ef9",
-      "userId": "72be",
-      "items": [
-        {
-          "id": "3",
-          "name": "Royalblue Formal Shirt",
-          "price": 2999,
-          "image": "https://imagescdn.thecollective.in/img/app/product/4/457000-3660648.jpg?asp=true&crop=700&auto=format",
-          "category": "shirt",
-          "quantity": 3
-        }
-      ],
-      "address": "pp house areekd",
-      "payment": "cod",
-      "total": 8997,
-      "status": "Pending",
-      "date": "8/24/2025, 10:32:40 PM",
-      "orderId": "ORD1756054960974"
-    },
-    {
-      "id": "c1b6",
-      "userId": "72be",
-      "items": [
-        {
-          "id": "1",
-          "name": "Classic black Shirt",
-          "price": 2999,
-          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfeU3bq3ucG734hD1lOVv3F-r_j_j1gcoQ9Q&s",
-          "category": "shirt",
-          "quantity": 2
-        }
-      ],
-      "address": "pphouse-areekad",
-      "payment": "upi",
-      "total": 5998,
-      "status": "Pending",
-      "date": "8/24/2025, 11:28:15 PM",
-      "orderId": "ORD1756058295942"
-    },
-    {
-      "id": "f0ab",
-      "userId": "ed75",
-      "items": [
-        {
-          "id": "2",
-          "name": "Blue Denim Shirt",
-          "price": 2999,
-          "image": "https://media.istockphoto.com/id/584479824/photo/blue-jean-shirt-isolated-on-white-background.jpg?s=612x612&w=0&k=20&c=_yZ_NkKcn_P-eFVlqtB2RsAx8A9sFEQIjSU_xTwIFdY=",
-          "category": "shirt",
-          "quantity": 1
-        }
-      ],
-      "address": "hehsdfhfshfjasdfhsadjkhf",
-      "payment": "cod",
-      "total": 2999,
-      "status": "Pending",
-      "date": "8/25/2025, 9:18:36 AM",
-      "orderId": "ORD1756093716108"
-    },
-    {
-      "id": "b5d3",
-      "userId": "ed75",
-      "items": [
-        {
-          "id": "2",
-          "name": "Blue Denim Shirt",
-          "price": 2999,
-          "image": "https://media.istockphoto.com/id/584479824/photo/blue-jean-shirt-isolated-on-white-background.jpg?s=612x612&w=0&k=20&c=_yZ_NkKcn_P-eFVlqtB2RsAx8A9sFEQIjSU_xTwIFdY=",
-          "category": "shirt",
-          "quantity": 10
-        }
-      ],
-      "address": "sdfasdvsvsvs",
-      "payment": "cod",
-      "total": 29990,
-      "status": "Pending",
-      "date": "8/25/2025, 9:18:53 AM",
-      "orderId": "ORD1756093733255"
-    },
-    {
-      "id": "45b5",
-      "userId": "b6cf",
-      "items": [
-        {
-          "id": "6",
-          "name": "Striped Casual Shirt",
-          "price": 2999,
-          "image": "https://imagescdn.thecollective.in/img/app/product/8/885086-10647567.jpg",
-          "category": "shirt",
-          "quantity": 3
-        }
-      ],
-      "address": "kalathul thodi areekad",
-      "payment": "cod",
-      "total": 8997,
-      "status": "Pending",
-      "date": "8/25/2025, 9:55:15 AM",
-      "orderId": "ORD1756095915003"
-    },
-    {
-      "id": "9a5d",
-      "userId": "bda5",
-      "items": [
-        {
-          "id": "2",
-          "name": "Blue Denim Shirt",
-          "price": 2999,
-          "image": "https://media.istockphoto.com/id/584479824/photo/blue-jean-shirt-isolated-on-white-background.jpg?s=612x612&w=0&k=20&c=_yZ_NkKcn_P-eFVlqtB2RsAx8A9sFEQIjSU_xTwIFdY=",
-          "category": "shirt",
-          "quantity": 1
-        }
-      ],
-      "address": "jmhgjhkfkjhjkhkhk hk",
-      "payment": "cod",
-      "total": 2999,
-      "status": "Pending",
-      "date": "8/25/2025, 10:05:36 AM",
-      "orderId": "ORD1756096536361"
-    },
-    {
-      "id": "d2da",
-      "userId": "dcb1",
-      "items": [
-        {
-          "id": "2",
-          "name": "Blue Denim Shirt",
-          "price": 2999,
-          "image": "https://media.istockphoto.com/id/584479824/photo/blue-jean-shirt-isolated-on-white-background.jpg?s=612x612&w=0&k=20&c=_yZ_NkKcn_P-eFVlqtB2RsAx8A9sFEQIjSU_xTwIFdY=",
-          "category": "shirt",
-          "quantity": 3
-        }
-      ],
-      "address": "asdfghjbgsb dfvds",
-      "payment": "card",
-      "total": 8997,
-      "status": "Pending",
-      "date": "8/25/2025, 10:13:58 AM",
-      "orderId": "ORD1756097038046"
-    },
-    {
-      "id": "9494",
-      "userId": "72be",
-      "items": [
-        {
-          "id": "2",
-          "name": "Blue Denim Shirt",
-          "price": 2999,
-          "image": "https://media.istockphoto.com/id/584479824/photo/blue-jean-shirt-isolated-on-white-background.jpg?s=612x612&w=0&k=20&c=_yZ_NkKcn_P-eFVlqtB2RsAx8A9sFEQIjSU_xTwIFdY=",
-          "category": "shirt",
-          "quantity": 1
-        }
-      ],
-      "address": "tdfyghiop[",
-      "payment": "card",
-      "total": 2999,
-      "status": "Pending",
-      "date": "8/25/2025, 10:24:49 AM",
-      "orderId": "ORD1756097689004"
-    },
-    {
-      "id": "d5fe",
-      "userId": "d73a",
-      "items": [
-        {
-          "id": "3",
-          "name": "Royalblue Formal Shirt",
-          "price": 2999,
-          "image": "https://imagescdn.thecollective.in/img/app/product/4/457000-3660648.jpg?asp=true&crop=700&auto=format",
-          "category": "shirt",
-          "quantity": 1
-        }
-      ],
-      "address": "fwdtqwdtjqwdgjwgdjwegd",
-      "payment": "upi",
-      "total": 2999,
-      "status": "Pending",
-      "date": "8/25/2025, 11:09:14 AM",
-      "orderId": "ORD1756100354753"
-    },
-    {
-      "id": "0443",
-      "userId": "72be",
-      "items": [
-        {
-          "id": "2",
-          "name": "Blue Denim Shirt",
-          "price": 2999,
-          "image": "https://media.istockphoto.com/id/584479824/photo/blue-jean-shirt-isolated-on-white-background.jpg?s=612x612&w=0&k=20&c=_yZ_NkKcn_P-eFVlqtB2RsAx8A9sFEQIjSU_xTwIFdY=",
-          "category": "shirt",
-          "quantity": 1
-        }
-      ],
-      "address": "pp house areeeekad",
-      "payment": "cod",
-      "total": 2999,
-      "status": "Pending",
-      "date": "8/25/2025, 11:40:48 AM",
-      "orderId": "ORD1756102248782"
-    },
-    {
-      "id": "a510",
-      "userId": "72be",
-      "items": [
-        {
-          "id": "3",
-          "name": "Royalblue Formal Shirt",
-          "price": 2999,
-          "image": "https://imagescdn.thecollective.in/img/app/product/4/457000-3660648.jpg?asp=true&crop=700&auto=format",
-          "category": "shirt",
-          "quantity": 1
-        }
-      ],
-      "address": "fgzfdgfdgdfgdfgdf",
-      "payment": "cod",
-      "total": 2999,
-      "status": "Pending",
-      "date": "8/25/2025, 11:55:54 AM",
-      "orderId": "ORD1756103154940"
+      "total": 5199,
+      "status": "Processing",
+      "date": "9/1/2025, 4:47:58 PM",
+      "orderId": "ORD1756725478988"
     }
   ]
 }

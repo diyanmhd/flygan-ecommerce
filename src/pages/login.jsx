@@ -1,30 +1,37 @@
+// src/pages/Login.jsx
 import React, { useEffect, useReducer, useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-import { UserContext } from "../components/UserContext"; // import UserContext
+import { UserContext } from "../components/UserContext";
 
+// Reducer to handle form state
 function reduce(prev, action) {
   switch (action.type) {
     case "email":
-      return { ...prev, error: "", email: action.payLoad };
+      return { ...prev, error: "", email: action.payload };
     case "password":
-      return { ...prev, error: "", password: action.payLoad };
+      return { ...prev, error: "", password: action.payload };
     case "error":
-      return { ...prev, error: action.payLoad };
+      return { ...prev, error: action.payload };
     default:
       return prev;
   }
 }
 
 function Login() {
-  const nav = useNavigate();
   const [cred, setCred] = useState([]);
-  const { setUser } = useContext(UserContext); // get setUser from context
+  const { setUser } = useContext(UserContext);
+  const navigate = useNavigate();
 
+  // Fetch all users on mount
   useEffect(() => {
     async function Getcred() {
-      const resp = await axios.get("http://localhost:3000/users");
-      setCred(resp.data);
+      try {
+        const resp = await axios.get("http://localhost:3000/users");
+        setCred(resp.data);
+      } catch (err) {
+        console.error("Error fetching users", err);
+      }
     }
     Getcred();
   }, []);
@@ -35,11 +42,12 @@ function Login() {
     error: "",
   });
 
+  // Handle form submission
   function validate(e) {
     e.preventDefault();
 
     if (!state.email || !state.password) {
-      dispatch({ type: "error", payLoad: "Email and password required" });
+      dispatch({ type: "error", payload: "Email and password required" });
       return;
     }
 
@@ -48,11 +56,20 @@ function Login() {
     );
 
     if (!user) {
-      dispatch({ type: "error", payLoad: "Invalid email or password" });
+      dispatch({ type: "error", payload: "Invalid email or password" });
+    } else if (user.status === "Blocked") {
+      // Prevent login for blocked users
+      dispatch({ type: "error", payload: "Your account is blocked. Contact admin." });
     } else {
-      //  Update UserContext immediately
-      setUser(user); 
-      nav("/"); // go to home page
+      // Save user info in localStorage
+      localStorage.setItem("user", JSON.stringify(user));
+      localStorage.setItem("userId", String(user.id));
+
+      // Update context
+      setUser(user);
+
+      // Redirect to home
+      navigate("/");
     }
   }
 
@@ -69,7 +86,7 @@ function Login() {
               placeholder="Enter your email"
               className="w-full border px-2 py-1 rounded"
               onChange={(e) =>
-                dispatch({ type: "email", payLoad: e.target.value })
+                dispatch({ type: "email", payload: e.target.value })
               }
             />
           </div>
@@ -81,7 +98,7 @@ function Login() {
               placeholder="Enter password"
               className="w-full border px-2 py-1 rounded"
               onChange={(e) =>
-                dispatch({ type: "password", payLoad: e.target.value })
+                dispatch({ type: "password", payload: e.target.value })
               }
             />
           </div>

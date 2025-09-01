@@ -184,7 +184,7 @@ const Home = () => {
                 Free Shipping
               </h3>
               <p className="text-gray-600">
-                Free shipping on all orders above ₹999
+                Free shipping on all orders above $999
               </p>
             </div>
             <div className="text-center group p-6 rounded-xl hover:bg-gray-50 transition-all duration-300">
@@ -286,7 +286,7 @@ const Home = () => {
                       </h3>
                       <div className="flex items-center justify-between">
                         <p className="font-semibold text-sm md:text-base text-amber-700">
-                          ₹{item.price}
+                          ${item.price}
                         </p>
                         <div className="flex items-center text-yellow-400">
                           <span className="text-xs">⭐⭐⭐⭐⭐</span>

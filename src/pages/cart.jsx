@@ -128,7 +128,7 @@ function Cart() {
                             Price
                           </span>
                           <span className="text-sm md:text-base font-medium text-gray-900">
-                            ₹{item.price}
+                            ${item.price}
                           </span>
                         </div>
 
@@ -165,7 +165,7 @@ function Cart() {
                           </span>
                           <div className="flex items-center gap-4">
                             <span className="text-sm md:text-base font-medium text-gray-900">
-                              ₹{item.price * item.quantity}
+                              ${item.price * item.quantity}
                             </span>
                             <button
                               onClick={() => remove(item.id)}
@@ -230,7 +230,7 @@ function Cart() {
                 <div className="border-t pt-4 mb-6">
                   <div className="flex justify-between text-base font-semibold text-gray-900">
                     <span>Total</span>
-                    <span>₹{total}</span>
+                    <span>${total}</span>
                   </div>
                 </div>
 

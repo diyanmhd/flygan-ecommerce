@@ -129,7 +129,7 @@ function ProductDetails() {
 
               <div className="mb-6">
                 <p className="font-semibold text-3xl text-amber-700">
-                  ₹{product.price}
+                  ${product.price}
                 </p>
                 <p className="text-sm text-gray-500 mt-1">
                   Inclusive of all taxes
