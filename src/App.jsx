@@ -5,7 +5,7 @@ import { useContext } from "react";
 import Navbar from "./components/navbar";
 import Home from "./pages/home";
 import Collection from "./pages/collection";
-import ProductDetails from "./pages/productdetails";  
+import ProductDetails from "./pages/prdouctdetails";  
 import Wishlist from "./pages/wishlist";
 import Cart from "./pages/cart";
 import Order from "./pages/order";
@@ -19,7 +19,7 @@ import { UserProvider, UserContext } from "./components/UserContext";
 import AdminLayout from "./Admin/AdminLayout";      
 import AdminDashboard from "./Admin/AdminDashboard"; 
 import ManageProducts from "./Admin/ManageProducts"; 
-import ManageOrders from "./Admin/ManageOrder";      
+import ManageOrders from "./admin/ManageOrder";      
 import ManageUsers from "./Admin/ManageUsers";        
 
 function App() {
