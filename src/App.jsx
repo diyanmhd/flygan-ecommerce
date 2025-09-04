@@ -5,7 +5,7 @@ import { useContext } from "react";
 import Navbar from "./components/navbar";
 import Home from "./pages/home";
 import Collection from "./pages/collection";
-import ProductDetails from "./pages/prdouctdetails";  
+import ProductDetails from "./pages/productdetails";  // ✅ fixed typo
 import Wishlist from "./pages/wishlist";
 import Cart from "./pages/cart";
 import Order from "./pages/order";
@@ -15,13 +15,12 @@ import Register from "./pages/register";
 import { SearchProvider } from "./components/search";
 import { UserProvider, UserContext } from "./components/UserContext";
 
-// Admin Components (check your folder name: "Admin" vs "admin")
+// ✅ Ensure "admin" folder is lowercase in both file system & imports
 import AdminLayout from "./admin/AdminLayout";
 import AdminDashboard from "./admin/AdminDashboard";
 import ManageProducts from "./admin/ManageProducts";
-import ManageOrders from "./admin/ManageOrder"; 
+import ManageOrders from "./admin/ManageOrder";
 import ManageUsers from "./admin/ManageUsers";
-  
 
 function App() {
   const location = useLocation();
