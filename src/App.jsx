@@ -17,10 +17,10 @@ import { UserProvider, UserContext } from "./components/UserContext";
 
 // ✅ Ensure "admin" folder is lowercase in both file system & imports
 import AdminLayout from "./admin/AdminLayout";
-import AdminDashboard from "./admin/admindashboard";
-import ManageProducts from "./admin/manageproducts";
-import ManageOrders from "./admin/manageorders";
-import ManageUsers from "./admin/manageusers";
+import AdminDashboard from "./admin/AdminDashboard";
+import ManageProducts from "./admin/ManageProducts";
+import ManageOrders from "./admin/ManageOrder";
+import ManageUsers from "./admin/ManageUsers";
 
 function App() {
   const location = useLocation();
