@@ -16,10 +16,10 @@ import { SearchProvider } from "./components/search";
 import { UserProvider, UserContext } from "./components/UserContext";
 
 // ✅ Ensure "admin" folder is lowercase in both file system & imports
-import AdminLayout from "./admin/adminlayout";
+import AdminLayout from "./admin/AdminLayout";
 import AdminDashboard from "./admin/admindashboard";
 import ManageProducts from "./admin/manageproducts";
-import ManageOrders from "./admin/manageorder";
+import ManageOrders from "./admin/manageorders";
 import ManageUsers from "./admin/manageusers";
 
 function App() {
