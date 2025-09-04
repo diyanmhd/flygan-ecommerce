@@ -16,11 +16,12 @@ import { SearchProvider } from "./components/search";
 import { UserProvider, UserContext } from "./components/UserContext";
 
 // Admin Components (check your folder name: "Admin" vs "admin")
-import AdminLayout from "./admin/AdminLayout";      
-import AdminDashboard from "./admin/AdminDashboard"; 
-import ManageProducts from "./admin/ManageProducts"; 
-import ManageOrders from "./admin/ManageOrder";      
-import ManageUsers from "./admin/ManageUsers";        
+import AdminLayout from "./admin/AdminLayout.jsx";
+import AdminDashboard from "./admin/AdminDashboard.jsx";
+import ManageProducts from "./admin/ManageProducts.jsx";
+import ManageOrders from "./admin/ManageOrder.jsx";
+import ManageUsers from "./admin/ManageUsers.jsx";
+  
 
 function App() {
   const location = useLocation();
