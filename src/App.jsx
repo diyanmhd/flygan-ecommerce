@@ -5,7 +5,7 @@ import { useContext } from "react";
 import Navbar from "./components/navbar";
 import Home from "./pages/home";
 import Collection from "./pages/collection";
-import ProductDetails from "./pages/prdouctdetails"; // 
+import ProductDetails from "./pages/productdetails";  
 import Wishlist from "./pages/wishlist";
 import Cart from "./pages/cart";
 import Order from "./pages/order";
@@ -15,12 +15,12 @@ import Register from "./pages/register";
 import { SearchProvider } from "./components/search";
 import { UserProvider, UserContext } from "./components/UserContext";
 
-// Admin Components
-import AdminLayout from "./admin/AdminLayout";
-import AdminDashboard from "./admin/AdminDashboard";
-import ManageProducts from "./admin/ManageProducts";
-import ManageOrders from "./admin/ManageOrders";
-import ManageUsers from "./admin/ManageUsers";
+// Admin Components (check your folder name: "Admin" vs "admin")
+import AdminLayout from "./Admin/AdminLayout";      
+import AdminDashboard from "./Admin/AdminDashboard"; 
+import ManageProducts from "./Admin/ManageProducts"; 
+import ManageOrders from "./Admin/ManageOrder";      
+import ManageUsers from "./Admin/ManageUsers";        
 
 function App() {
   const location = useLocation();
