@@ -9,38 +9,22 @@ function AdminNavbar() {
   const handleLogout = () => {
     setUser(null);
     localStorage.removeItem("user");
-    navigate("/"); // redirect to login after logout
+    navigate("/");
   };
 
   return (
-    <header
-      style={{
-        display: "flex",
-        justifyContent: "space-between",
-        alignItems: "center",
-        padding: "15px 20px",
-        background: "#1a1a1a",
-        color: "white",
-      }}
-    >
+    <header className="bg-gray-900 text-white py-4 px-6 flex justify-between items-center shadow-md">
       {/* Company Name */}
-      <h2 style={{ margin: 0 }}>Flygan Admin</h2>
+      <h2 className="text-xl font-bold">Flygan </h2>
 
       {/* Right Side - Admin Info */}
-      <div style={{ display: "flex", alignItems: "center", gap: "15px" }}>
-        <span>
-          {user ? `Welcome, ${user.name}` : "Admin"}
+      <div className="flex items-center gap-4">
+        <span className="text-gray-200">
+          Welcome, {user.name}
         </span>
         <button
           onClick={handleLogout}
-          style={{
-            background: "#e74c3c",
-            border: "none",
-            padding: "8px 15px",
-            color: "white",
-            borderRadius: "5px",
-            cursor: "pointer",
-          }}
+          className="bg-red-600 hover:bg-red-700 text-white py-2 px-4 rounded-md transition-colors duration-200"
         >
           Logout
         </button>

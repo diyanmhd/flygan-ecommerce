@@ -5,7 +5,7 @@ import { useContext } from "react";
 import Navbar from "./components/navbar";
 import Home from "./pages/home";
 import Collection from "./pages/collection";
-import ProductDetails from "./pages/prdouctdetails"; // Check spelling if needed
+import ProductDetails from "./pages/prdouctdetails"; // 
 import Wishlist from "./pages/wishlist";
 import Cart from "./pages/cart";
 import Order from "./pages/order";
@@ -35,6 +35,7 @@ function App() {
   const ProtectedRoute = ({ children }) => {
     const { user } = useContext(UserContext);
     if (!user) return <Navigate to="/login" replace />;
+    if (user.role === "admin") return <Navigate to="/admin" replace />;
     return children;
   };
 
@@ -42,7 +43,9 @@ function App() {
   const AuthRoute = ({ children }) => {
     const { user } = useContext(UserContext);
     if (user) {
-      return user.role === "admin" ? <Navigate to="/admin" replace /> : <Navigate to="/" replace />;
+      return user.role === "admin"
+        ? <Navigate to="/admin" replace />
+        : <Navigate to="/" replace />;
     }
     return children;
   };
@@ -50,7 +53,15 @@ function App() {
   // Admin protected route
   const AdminRoute = ({ children }) => {
     const { user } = useContext(UserContext);
-    if (!user || user.role !== "admin") return <Navigate to="/" replace />;
+    if (!user) return <Navigate to="/login" replace />;
+    if (user.role !== "admin") return <Navigate to="/" replace />;
+    return children;
+  };
+
+  // Public route (block for admins)
+  const PublicRoute = ({ children }) => {
+    const { user } = useContext(UserContext);
+    if (user?.role === "admin") return <Navigate to="/admin" replace />;
     return children;
   };
 
@@ -59,16 +70,16 @@ function App() {
       <SearchProvider>
         {!hideNavbar && <Navbar />}
         <Routes>
-          {/* Public Routes */}
-          <Route path="/" element={<Home />} />
-          <Route path="/collection" element={<Collection />} />
-          <Route path="/product/:id" element={<ProductDetails />} />
+          {/* Public Routes (Admins blocked) */}
+          <Route path="/" element={<PublicRoute><Home /></PublicRoute>} />
+          <Route path="/collection" element={<PublicRoute><Collection /></PublicRoute>} />
+          <Route path="/product/:id" element={<PublicRoute><ProductDetails /></PublicRoute>} />
 
-          {/* Auth Routes */}
-          <Route path="/login" element={<AuthRoute><Login /></AuthRoute>} />
-          <Route path="/register" element={<AuthRoute><Register /></AuthRoute>} />
+          {/* Auth Routes (Admins blocked) */}
+          <Route path="/login" element={<PublicRoute><AuthRoute><Login /></AuthRoute></PublicRoute>} />
+          <Route path="/register" element={<PublicRoute><AuthRoute><Register /></AuthRoute></PublicRoute>} />
 
-          {/* User Protected Routes */}
+          {/* User Protected Routes (Admins blocked) */}
           <Route path="/wishlist" element={<ProtectedRoute><Wishlist /></ProtectedRoute>} />
           <Route path="/cart" element={<ProtectedRoute><Cart /></ProtectedRoute>} />
           <Route path="/order" element={<ProtectedRoute><Order /></ProtectedRoute>} />
@@ -81,6 +92,9 @@ function App() {
             <Route path="orders" element={<ManageOrders />} />
             <Route path="users" element={<ManageUsers />} />
           </Route>
+
+          {/* Catch all - redirect */}
+          <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </SearchProvider>
     </UserProvider>

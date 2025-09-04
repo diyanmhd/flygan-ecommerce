@@ -4,41 +4,45 @@ import AdminNavbar from "./AdminNavbar";
 
 function AdminLayout() {
   return (
-    <div>
-      {/* 🔹 Admin Navbar at top */}
+    <div className="min-h-screen bg-gray-100">
+      {/* Admin Navbar at top */}
       <AdminNavbar />
 
-      <div style={{ display: "flex" }}>
+      <div className="flex">
         {/* Sidebar */}
-        <aside
-          style={{
-            width: "220px",
-            background: "#222",
-            color: "white",
-            minHeight: "100vh",
-            padding: "20px",
-          }}
-        >
+        <aside className="w-64 bg-gray-900 text-white min-h-screen p-5">
           <nav>
-            <ul style={{ listStyle: "none", padding: 0 }}>
+            <ul className="space-y-3">
               <li>
-                <Link to="/admin" style={{ color: "white", textDecoration: "none" }}>
+                <Link 
+                  to="/admin" 
+                  className="block py-2.5 px-4 rounded-lg hover:bg-gray-800 transition-colors duration-200 text-white no-underline"
+                >
                   Dashboard
                 </Link>
               </li>
               <li>
-                <Link to="/admin/products" style={{ color: "white", textDecoration: "none" }}>
-                  Manage Products
+                <Link 
+                  to="/admin/products" 
+                  className="block py-2.5 px-4 rounded-lg hover:bg-gray-800 transition-colors duration-200 text-white no-underline"
+                >
+                   Products
                 </Link>
               </li>
               <li>
-                <Link to="/admin/orders" style={{ color: "white", textDecoration: "none" }}>
-                  Manage Orders
+                <Link 
+                  to="/admin/orders" 
+                  className="block py-2.5 px-4 rounded-lg hover:bg-gray-800 transition-colors duration-200 text-white no-underline"
+                >
+                   Orders
                 </Link>
               </li>
               <li>
-                <Link to="/admin/users" style={{ color: "white", textDecoration: "none" }}>
-                  Manage Users
+                <Link 
+                  to="/admin/users" 
+                  className="block py-2.5 px-4 rounded-lg hover:bg-gray-800 transition-colors duration-200 text-white no-underline"
+                >
+                   Users
                 </Link>
               </li>
             </ul>
@@ -46,7 +50,7 @@ function AdminLayout() {
         </aside>
 
         {/* Main Content */}
-        <main style={{ flex: 1, padding: "20px" }}>
+        <main className="flex-1 p-6">
           <Outlet />
         </main>
       </div>
