@@ -1,70 +1,85 @@
-import React, { useReducer, useContext } from "react";
+import React, { useReducer } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
-import { UserContext } from "../components/UserContext"; // import UserContext
+import authService from "../services/authService";
 
+// Reducer to manage form state
 function reduce(prev, action) {
   switch (action.type) {
-    case "get-name":
-      return { ...prev, name: action.payLoad };
-    case "get-email":
-      return { ...prev, email: action.payLoad };
-    case "get-password":
-      return { ...prev, password: action.payLoad };
+    case "name":
+      return { ...prev, fullName: action.payload, error: "" };
+    case "email":
+      return { ...prev, email: action.payload, error: "" };
+    case "password":
+      return { ...prev, password: action.payload, error: "" };
+    case "error":
+      return { ...prev, error: action.payload };
     default:
       return prev;
   }
 }
 
 function Register() {
-  const nav = useNavigate();
-  const { setUser } = useContext(UserContext); // get setUser from context
-  const [state, dispatch] = useReducer(reduce, {});
+  const navigate = useNavigate();
 
-  async function registerUser() {
+  const [state, dispatch] = useReducer(reduce, {
+    fullName: "",
+    email: "",
+    password: "",
+    error: "",
+  });
+
+  async function handleRegister(e) {
+    e.preventDefault();
+
+    // Basic validation
+    if (!state.fullName || !state.email || !state.password) {
+      dispatch({
+        type: "error",
+        payload: "All fields are required",
+      });
+      return;
+    }
+
     try {
-      const response = await axios.post("http://localhost:3000/users", {
-        name: state.name,
+      await authService.register({
+        fullName: state.fullName,
         email: state.email,
         password: state.password,
-        role: "user",
-        cart: [],
-        wishlist: [],
-        order: [],
       });
 
-      alert("User registered successfully");
+      alert("Registration successful. Please login.");
 
-      //  Log in automatically by updating UserContext
-      // setUser(response.data);
-
-      nav("/login"); // go to home page
-    } catch (error) {
-      alert("Registration failed");
-      console.error(error);
+      navigate("/login");
+    } catch (err) {
+      dispatch({
+        type: "error",
+        payload:
+          err.response?.data?.message ||
+          "Registration failed. Try again.",
+      });
     }
   }
 
   return (
     <div className="flex justify-center items-center min-h-screen bg-gray-100">
       <div className="bg-white p-6 rounded shadow-md w-80">
-        <h2 className="text-center text-xl font-bold mb-6">Create Account</h2>
+        <h2 className="text-center text-xl font-bold mb-6">
+          Create Account
+        </h2>
 
-        <form
-          onSubmit={(e) => {
-            e.preventDefault();
-            registerUser();
-          }}
-        >
-          {/* Name */}
+        <form onSubmit={handleRegister}>
+          {/* Full Name */}
           <div className="mb-4">
             <label className="block text-sm mb-1">Full Name</label>
             <input
               type="text"
-              placeholder="Enter your name"
+              placeholder="Enter your full name"
               className="w-full border px-2 py-1 rounded"
               onChange={(e) =>
-                dispatch({ type: "get-name", payLoad: e.target.value })
+                dispatch({
+                  type: "name",
+                  payload: e.target.value,
+                })
               }
             />
           </div>
@@ -77,7 +92,10 @@ function Register() {
               placeholder="Enter your email"
               className="w-full border px-2 py-1 rounded"
               onChange={(e) =>
-                dispatch({ type: "get-email", payLoad: e.target.value })
+                dispatch({
+                  type: "email",
+                  payload: e.target.value,
+                })
               }
             />
           </div>
@@ -90,12 +108,22 @@ function Register() {
               placeholder="Enter password"
               className="w-full border px-2 py-1 rounded"
               onChange={(e) =>
-                dispatch({ type: "get-password", payLoad: e.target.value })
+                dispatch({
+                  type: "password",
+                  payload: e.target.value,
+                })
               }
             />
           </div>
 
-          {/* Button */}
+          {/* Error */}
+          {state.error && (
+            <p className="text-red-500 text-sm mb-2">
+              {state.error}
+            </p>
+          )}
+
+          {/* Submit */}
           <button
             type="submit"
             className="w-full bg-indigo-500 text-white py-2 rounded hover:bg-indigo-600"
@@ -106,13 +134,12 @@ function Register() {
 
         <p className="text-center text-sm mt-4">
           Already have an account?{" "}
-          <a
-            href="#"
-            className="text-indigo-500"
-            onClick={() => nav("/login")}
+          <span
+            className="text-indigo-500 cursor-pointer hover:underline"
+            onClick={() => navigate("/login")}
           >
             Sign in
-          </a>
+          </span>
         </p>
       </div>
     </div>

@@ -5,17 +5,18 @@ import { useContext } from "react";
 import Navbar from "./components/navbar";
 import Home from "./pages/home";
 import Collection from "./pages/collection";
-import ProductDetails from "./pages/productdetails";  // ✅ fixed typo
+import ProductDetails from "./pages/productdetails";
 import Wishlist from "./pages/wishlist";
 import Cart from "./pages/cart";
 import Order from "./pages/order";
 import MyOrders from "./pages/MyOrders";
+import OrderSuccess from "./pages/OrderSuccess"; // ✅ ADD
 import Login from "./pages/login";
 import Register from "./pages/register";
 import { SearchProvider } from "./components/search";
-import { UserProvider, UserContext } from "./components/UserContext";
+import { UserContext } from "./components/UserContext";
 
-// ✅ Ensure "admin" folder is lowercase in both file system & imports
+// Admin
 import AdminLayout from "./admin/AdminLayout";
 import AdminDashboard from "./admin/AdminDashboard";
 import ManageProducts from "./admin/ManageProducts";
@@ -24,80 +25,87 @@ import ManageUsers from "./admin/ManageUsers";
 
 function App() {
   const location = useLocation();
+  const { user } = useContext(UserContext);
 
-  // Hide navbar on login/register/admin pages
+  const role = user?.role?.toLowerCase();
+
+  // Hide navbar on admin/login/register pages
   const hideNavbar =
     location.pathname.startsWith("/admin") ||
     location.pathname === "/login" ||
     location.pathname === "/register";
 
-  // Protected routes for normal users
+  // 🔐 Protected route (USER only)
   const ProtectedRoute = ({ children }) => {
-    const { user } = useContext(UserContext);
     if (!user) return <Navigate to="/login" replace />;
-    if (user.role === "admin") return <Navigate to="/admin" replace />;
+    if (role === "admin") return <Navigate to="/admin" replace />;
     return children;
   };
 
-  // Auth route for login/register pages
+  // 🔐 Login/Register route
   const AuthRoute = ({ children }) => {
-    const { user } = useContext(UserContext);
-    if (user) {
-      return user.role === "admin"
-        ? <Navigate to="/admin" replace />
-        : <Navigate to="/" replace />;
-    }
-    return children;
+    if (!user) return children;
+    return role === "admin"
+      ? <Navigate to="/admin" replace />
+      : <Navigate to="/" replace />;
   };
 
-  // Admin protected route
+  // 🔐 Admin-only route
   const AdminRoute = ({ children }) => {
-    const { user } = useContext(UserContext);
     if (!user) return <Navigate to="/login" replace />;
-    if (user.role !== "admin") return <Navigate to="/" replace />;
+    if (role !== "admin") return <Navigate to="/" replace />;
     return children;
   };
 
-  // Public route (block for admins)
+  // 🌍 Public route (block admin)
   const PublicRoute = ({ children }) => {
-    const { user } = useContext(UserContext);
-    if (user?.role === "admin") return <Navigate to="/admin" replace />;
+    if (role === "admin") return <Navigate to="/admin" replace />;
     return children;
   };
 
   return (
-    <UserProvider>
-      <SearchProvider>
-        {!hideNavbar && <Navbar />}
-        <Routes>
-          {/* Public Routes (Admins blocked) */}
-          <Route path="/" element={<PublicRoute><Home /></PublicRoute>} />
-          <Route path="/collection" element={<PublicRoute><Collection /></PublicRoute>} />
-          <Route path="/product/:id" element={<PublicRoute><ProductDetails /></PublicRoute>} />
+    <SearchProvider>
+      {!hideNavbar && <Navbar />}
 
-          {/* Auth Routes (Admins blocked) */}
-          <Route path="/login" element={<PublicRoute><AuthRoute><Login /></AuthRoute></PublicRoute>} />
-          <Route path="/register" element={<PublicRoute><AuthRoute><Register /></AuthRoute></PublicRoute>} />
+      <Routes>
+        {/* 🌍 Public Routes */}
+        <Route path="/" element={<PublicRoute><Home /></PublicRoute>} />
+        <Route path="/collection" element={<PublicRoute><Collection /></PublicRoute>} />
+        <Route path="/product/:id" element={<PublicRoute><ProductDetails /></PublicRoute>} />
 
-          {/* User Protected Routes (Admins blocked) */}
-          <Route path="/wishlist" element={<ProtectedRoute><Wishlist /></ProtectedRoute>} />
-          <Route path="/cart" element={<ProtectedRoute><Cart /></ProtectedRoute>} />
-          <Route path="/order" element={<ProtectedRoute><Order /></ProtectedRoute>} />
-          <Route path="/myorders" element={<ProtectedRoute><MyOrders /></ProtectedRoute>} />
+        {/* 🔑 Auth Routes */}
+        <Route path="/login" element={<AuthRoute><Login /></AuthRoute>} />
+        <Route path="/register" element={<AuthRoute><Register /></AuthRoute>} />
 
-          {/* Admin Protected Routes */}
-          <Route path="/admin" element={<AdminRoute><AdminLayout /></AdminRoute>}>
-            <Route index element={<AdminDashboard />} />
-            <Route path="products" element={<ManageProducts />} />
-            <Route path="orders" element={<ManageOrders />} />
-            <Route path="users" element={<ManageUsers />} />
-          </Route>
+        {/* 👤 User Routes */}
+        <Route path="/wishlist" element={<ProtectedRoute><Wishlist /></ProtectedRoute>} />
+        <Route path="/cart" element={<ProtectedRoute><Cart /></ProtectedRoute>} />
+        <Route path="/order" element={<ProtectedRoute><Order /></ProtectedRoute>} />
 
-          {/* Catch all - redirect */}
-          <Route path="*" element={<Navigate to="/" replace />} />
-        </Routes>
-      </SearchProvider>
-    </UserProvider>
+        {/* ✅ NEW: Order Success Page */}
+        <Route
+          path="/order-success"
+          element={<ProtectedRoute><OrderSuccess /></ProtectedRoute>}
+        />
+
+        {/* ✅ FIXED PATH */}
+        <Route
+          path="/my-orders"
+          element={<ProtectedRoute><MyOrders /></ProtectedRoute>}
+        />
+
+        {/* 🛠 Admin Routes */}
+        <Route path="/admin" element={<AdminRoute><AdminLayout /></AdminRoute>}>
+          <Route index element={<AdminDashboard />} />
+          <Route path="products" element={<ManageProducts />} />
+          <Route path="orders" element={<ManageOrders />} />
+          <Route path="users" element={<ManageUsers />} />
+        </Route>
+
+        {/* 🔁 Fallback */}
+        <Route path="*" element={<Navigate to="/" replace />} />
+      </Routes>
+    </SearchProvider>
   );
 }
 

@@ -31,7 +31,7 @@
       "cart": [],
       "wishlist": [],
       "order": [],
-      "status": "Active"
+      "status": "Blocked"
     },
     {
       "id": "03d6",
@@ -98,15 +98,36 @@
       "wishlist": [],
       "order": [],
       "status": "Active"
+    },
+    {
+      "id": "0e16",
+      "name": "user",
+      "email": "user@gmail.com",
+      "password": "user@gmail.com",
+      "role": "user",
+      "cart": [],
+      "wishlist": [],
+      "order": []
+    },
+    {
+      "id": "6f6f",
+      "name": "AdilAli",
+      "email": "adil@gmail.com",
+      "password": "Adil@123",
+      "role": "user",
+      "cart": [],
+      "wishlist": [],
+      "order": []
     }
   ],
   "products": [
     {
       "id": "1",
       "name": "Classic black Shirt",
-      "price": 2999,
+      "price": 3000,
       "image": "https://image.hm.com/assets/hm/5d/2c/5d2c50bc2d2aead9bad7aa3b125b43097060210e.jpg?imwidth=1260",
-      "category": "shirt"
+      "category": "shirt",
+      "stock": 55
     },
     {
       "id": "2",
@@ -293,12 +314,12 @@
       "rating": 0
     },
     {
-      "id": "9b2e",
-      "name": "new balance",
-      "price": 6300,
-      "category": "other",
-      "stock": 2,
-      "image": "https://images.vegnonveg.com/resized/1020X1200/13680/new-balance-9060-linen-68909a7b8ef52.jpg?format=webp",
+      "id": "6fd6",
+      "name": "Beige Slim Fit Trouserssss",
+      "price": 34444,
+      "category": "shirt",
+      "stock": 44,
+      "image": "https://imagescdn.thecollective.in/img/app/product/1/1099511-18586684.jpg?asp=true&crop=700&auto=format",
       "rating": 0
     }
   ],
@@ -756,6 +777,218 @@
       "status": "Processing",
       "date": "9/4/2025, 12:25:26 PM",
       "orderId": "ORD1756968926254"
+    },
+    {
+      "id": "327c",
+      "userId": "03d6",
+      "items": [
+        {
+          "id": "6",
+          "name": "Striped Casual Shirt",
+          "price": 2999,
+          "image": "https://imagescdn.thecollective.in/img/app/product/8/885086-10647567.jpg",
+          "category": "shirt",
+          "quantity": 2
+        }
+      ],
+      "address": "pp house kalathi thodi",
+      "payment": "cod",
+      "total": 5998,
+      "status": "Pending",
+      "date": "9/17/2025, 10:29:18 AM",
+      "orderId": "ORD1758085158612"
+    },
+    {
+      "id": "1d27",
+      "userId": "0e16",
+      "items": [
+        {
+          "id": "2",
+          "name": "Blue Denim Shirt",
+          "price": 2999,
+          "image": "https://media.istockphoto.com/id/584479824/photo/blue-jean-shirt-isolated-on-white-background.jpg?s=612x612&w=0&k=20&c=_yZ_NkKcn_P-eFVlqtB2RsAx8A9sFEQIjSU_xTwIFdY=",
+          "category": "shirt",
+          "quantity": 3
+        },
+        {
+          "id": "7",
+          "name": "Olive Green Shirt",
+          "price": 2999,
+          "image": "https://imagescdn.thecollective.in/img/app/product/1/1056944-15402101.jpg?asp=true&crop=700&auto=format",
+          "category": "shirt",
+          "quantity": 3
+        },
+        {
+          "id": "12",
+          "name": "Formal Black Trousers",
+          "price": 1999,
+          "image": "https://www.shutterstock.com/image-photo/front-views-black-men-trousers-600nw-1429241312.jpg",
+          "category": "pant",
+          "quantity": 3
+        }
+      ],
+      "address": "pp house kalathil thodi po areekad",
+      "payment": "cod",
+      "total": 23991,
+      "status": "Pending",
+      "date": "9/17/2025, 10:39:51 AM",
+      "orderId": "ORD1758085791999"
+    },
+    {
+      "id": "d86a",
+      "userId": "03d6",
+      "items": [
+        {
+          "id": "2",
+          "name": "Blue Denim Shirt",
+          "price": 2999,
+          "image": "https://media.istockphoto.com/id/584479824/photo/blue-jean-shirt-isolated-on-white-background.jpg?s=612x612&w=0&k=20&c=_yZ_NkKcn_P-eFVlqtB2RsAx8A9sFEQIjSU_xTwIFdY=",
+          "category": "shirt",
+          "quantity": 13
+        }
+      ],
+      "address": "zxfvzxcvzxcvxcvzxc",
+      "payment": "cod",
+      "total": 38987,
+      "status": "Pending",
+      "date": "9/27/2025, 3:00:15 PM",
+      "orderId": "ORD1758965415340"
+    },
+    {
+      "id": "7354",
+      "userId": "03d6",
+      "items": [
+        {
+          "id": "6",
+          "name": "Striped Casual Shirt",
+          "price": 2999,
+          "image": "https://imagescdn.thecollective.in/img/app/product/8/885086-10647567.jpg",
+          "category": "shirt",
+          "quantity": 15
+        },
+        {
+          "id": "5",
+          "name": "Grey Polo Shirt",
+          "price": 1499,
+          "image": "https://st2.depositphotos.com/4192645/6758/i/450/depositphotos_67585911-stock-photo-t-shirt-front-view-on.jpg",
+          "category": "tshirt",
+          "quantity": 3
+        },
+        {
+          "id": "3",
+          "name": "Royalblue Formal Shirt",
+          "price": 2999,
+          "image": "https://image.hm.com/assets/hm/33/36/3336173869c79f7325590f8c903aaab83ac9428f.jpg?imwidth=396",
+          "category": "shirt",
+          "quantity": 1
+        }
+      ],
+      "address": "KUTTIKADE PEREMBA PO NALAMF",
+      "payment": "cod",
+      "total": 52481,
+      "status": "Pending",
+      "date": "9/29/2025, 10:59:19 AM",
+      "orderId": "ORD1759123759307"
+    },
+    {
+      "id": "0a66",
+      "userId": "03d6",
+      "items": [
+        {
+          "id": "1",
+          "name": "Classic black Shirt",
+          "price": 2999,
+          "image": "https://image.hm.com/assets/hm/5d/2c/5d2c50bc2d2aead9bad7aa3b125b43097060210e.jpg?imwidth=1260",
+          "category": "shirt",
+          "quantity": 23
+        }
+      ],
+      "address": "pp house kalathil thodi Areekad",
+      "payment": "cod",
+      "total": 68977,
+      "status": "Cancelled",
+      "date": "10/14/2025, 10:38:48 AM",
+      "orderId": "ORD1760418528712"
+    },
+    {
+      "id": "5a6a",
+      "userId": "03d6",
+      "items": [
+        {
+          "id": "2",
+          "name": "Blue Denim Shirt",
+          "price": 2999,
+          "image": "https://media.istockphoto.com/id/584479824/photo/blue-jean-shirt-isolated-on-white-background.jpg?s=612x612&w=0&k=20&c=_yZ_NkKcn_P-eFVlqtB2RsAx8A9sFEQIjSU_xTwIFdY=",
+          "category": "shirt",
+          "quantity": 3
+        }
+      ],
+      "address": "sddssddsdssdd",
+      "payment": "cod",
+      "total": 8997,
+      "status": "Pending",
+      "date": "12/8/2025, 3:36:47 PM",
+      "orderId": "ORD1765188407349"
+    },
+    {
+      "id": "c083",
+      "userId": "03d6",
+      "items": [
+        {
+          "id": "2",
+          "name": "Blue Denim Shirt",
+          "price": 2999,
+          "image": "https://media.istockphoto.com/id/584479824/photo/blue-jean-shirt-isolated-on-white-background.jpg?s=612x612&w=0&k=20&c=_yZ_NkKcn_P-eFVlqtB2RsAx8A9sFEQIjSU_xTwIFdY=",
+          "category": "shirt",
+          "quantity": 1
+        }
+      ],
+      "address": "gxbbzfgsdhgdggdg",
+      "payment": "cod",
+      "total": 2999,
+      "status": "Pending",
+      "date": "12/8/2025, 3:37:32 PM",
+      "orderId": "ORD1765188452003"
+    },
+    {
+      "id": "8af1",
+      "userId": "03d6",
+      "items": [
+        {
+          "id": "2",
+          "name": "Blue Denim Shirt",
+          "price": 2999,
+          "image": "https://media.istockphoto.com/id/584479824/photo/blue-jean-shirt-isolated-on-white-background.jpg?s=612x612&w=0&k=20&c=_yZ_NkKcn_P-eFVlqtB2RsAx8A9sFEQIjSU_xTwIFdY=",
+          "category": "shirt",
+          "quantity": 1
+        }
+      ],
+      "address": "sdcsdcsddssdds",
+      "payment": "cod",
+      "total": 2999,
+      "status": "Pending",
+      "date": "12/12/2025, 3:25:38 PM",
+      "orderId": "ORD1765533338645"
+    },
+    {
+      "id": "fb33",
+      "userId": "03d6",
+      "items": [
+        {
+          "id": "2",
+          "name": "Blue Denim Shirt",
+          "price": 2999,
+          "image": "https://media.istockphoto.com/id/584479824/photo/blue-jean-shirt-isolated-on-white-background.jpg?s=612x612&w=0&k=20&c=_yZ_NkKcn_P-eFVlqtB2RsAx8A9sFEQIjSU_xTwIFdY=",
+          "category": "shirt",
+          "quantity": 1
+        }
+      ],
+      "address": "fsdvdsfcsdvcsdc",
+      "payment": "cod",
+      "total": 2999,
+      "status": "Pending",
+      "date": "12/19/2025, 6:57:11 PM",
+      "orderId": "ORD1766150831362"
     }
   ]
 }

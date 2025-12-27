@@ -5,13 +5,22 @@ import { UserContext } from "./UserContext";
 
 function Navbar() {
   const { user, setUser } = useContext(UserContext);
+    const role = user?.role?.toLowerCase(); // ✅ FIX 1
   const { search, setSearch } = useContext(SearchContext);
   const [show, setShow] = useState(false);
   const navigate = useNavigate();
 
   const logout = () => {
-    setUser(null);
-    navigate("/");
+      localStorage.removeItem("token");
+      localStorage.removeItem("user");
+
+      setUser(null);
+      setShow(false);
+      if(role == "admin"){
+        navigate("/login",{replace:true});
+      }else{
+        navigate("/",{replace:true});
+      }
   };
 
   const handleSearch = (e) => {
@@ -140,14 +149,17 @@ function Navbar() {
                 {user ? (
                   <div className="flex flex-col">
                     <span className="px-4 py-2 text-gray-700 cursor-default border-b border-gray-100 text-xs uppercase tracking-wide font-medium">
-                      {user.name}
+                     {user.fullName}
+
                     </span>
                     <Link
-                      to="/myorders"
-                      className="px-4 py-2 hover:bg-gray-50 text-gray-700 transition-colors"
+                      to="/my-orders"
+                      onClick={() => setShow(false)}
+                      className="block px-4 py-2 hover:bg-gray-50"
                     >
                       My Orders
                     </Link>
+
                     <button
                       onClick={logout}
                       className="text-left px-4 py-2 hover:bg-gray-50 text-gray-700 transition-colors border-t border-gray-100"
