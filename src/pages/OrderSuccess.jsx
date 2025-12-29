@@ -1,79 +1,90 @@
 import React from "react";
-import { useLocation, Link } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 function OrderSuccess() {
+  const navigate = useNavigate();
   const { state } = useLocation();
+
   const order = state?.order;
 
   if (!order) {
     return (
       <div className="min-h-screen flex items-center justify-center">
-        <p>Invalid order</p>
+        <p>Order not found</p>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 py-16 px-4">
-      <div className="max-w-3xl mx-auto bg-white rounded-xl shadow p-8">
-        <div className="text-center mb-8">
-          <div className="text-green-600 text-5xl mb-4">✔</div>
-          <h1 className="text-2xl font-semibold">
-            Order Placed Successfully!
-          </h1>
-          <p className="text-gray-500 mt-2">
-            Thank you for your purchase. Your order has been confirmed.
-          </p>
-          <p className="mt-2 text-sm text-gray-600">
-            Order ID: <b>{order.orderNumber}</b>
-          </p>
-        </div>
+    <div className="min-h-screen bg-gray-50 flex items-center justify-center px-4">
+      <div className="bg-white max-w-md w-full rounded-xl shadow p-6 text-center">
 
-        <div className="grid md:grid-cols-2 gap-6 mb-6">
-          <div>
-            <h3 className="font-semibold mb-2">Order Details</h3>
-            <p>Date: {new Date(order.createdAt).toLocaleString()}</p>
-            <p>Payment: {order.paymentMethod}</p>
-            <p>Status: {order.status}</p>
+        <h1 className="text-2xl font-semibold text-green-700 mb-2">
+          🎉 Order Placed Successfully
+        </h1>
+
+        <p className="text-gray-600 mb-6">
+          Thank you for shopping with us!
+        </p>
+
+        <div className="text-left space-y-3 text-sm">
+          <div className="flex justify-between">
+            <span className="text-gray-500">Order Number</span>
+            <span className="font-medium">{order.orderNumber}</span>
+          </div>
+
+          <div className="flex justify-between">
+            <span className="text-gray-500">Order Date</span>
+            <span>
+              {new Date(order.createdAt).toLocaleString()}
+            </span>
+          </div>
+
+          <div className="flex justify-between">
+            <span className="text-gray-500">Payment Method</span>
+            <span className="font-medium">
+              {order.paymentMethod === "Cod"
+                ? "Cash on Delivery"
+                : order.paymentMethod}
+            </span>
+          </div>
+
+          <div className="flex justify-between">
+            <span className="text-gray-500">Order Status</span>
+            <span className="font-medium">{order.status}</span>
+          </div>
+
+          <div className="flex justify-between">
+            <span className="text-gray-500">Total Amount</span>
+            <span className="font-semibold">
+              ₹{order.totalAmount}
+            </span>
           </div>
 
           <div>
-            <h3 className="font-semibold mb-2">Delivery Address</h3>
-            <p>{order.deliveryAddress}</p>
+            <p className="text-gray-500 mb-1">Delivery Address</p>
+            <p className="border rounded p-2 text-gray-700">
+              {order.deliveryAddress}
+            </p>
           </div>
         </div>
 
-        <div>
-          <h3 className="font-semibold mb-4">Order Items</h3>
-          {order.items.map((item) => (
-            <div
-              key={item.productId}
-              className="flex items-center gap-4 mb-4"
-            >
-              <img
-                src={item.imageUrl}
-                alt={item.productName}
-                className="w-16 h-16 object-cover rounded"
-              />
-              <div className="flex-1">
-                <p className="font-medium">{item.productName}</p>
-                <p className="text-sm text-gray-500">
-                  Qty: {item.quantity}
-                </p>
-              </div>
-              <p>₹{item.unitPrice * item.quantity}</p>
-            </div>
-          ))}
-        </div>
-
-        <div className="text-center mt-8">
-          <Link
-            to="/my-orders"
-            className="bg-amber-700 text-white px-6 py-3 rounded"
+        <div className="mt-6 flex gap-3">
+          <button
+            onClick={() => navigate("/my-orders")}
+            className="flex-1 bg-amber-700 text-white py-2 rounded"
           >
             View My Orders
-          </Link>
+          </button>
+
+          <button
+            onClick={() => navigate("/collection")}
+            className="flex-1 border border-amber-700 text-amber-700 py-2 rounded"
+          >
+            Continue Shopping
+          </button>
         </div>
+
       </div>
     </div>
   );

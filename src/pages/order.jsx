@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import cartService from "../services/cartService";
 import orderService from "../services/orderService";
+import paymentService from "../services/paymentService";
 
 function Order() {
   const navigate = useNavigate();
@@ -13,12 +14,12 @@ function Order() {
   const [loadingCart, setLoadingCart] = useState(true);
   const [formErrors, setFormErrors] = useState({});
 
-  // 🔹 Fetch cart from backend
+  // Load cart
   useEffect(() => {
     cartService
       .getCart()
       .then((res) => setCart(res.data.data || []))
-      .catch((err) => console.error("Failed to load cart", err))
+      .catch((err) => console.error("Cart load failed", err))
       .finally(() => setLoadingCart(false));
   }, []);
 
@@ -31,6 +32,22 @@ function Order() {
     return Object.keys(errors).length === 0;
   };
 
+  // Load Razorpay SDK
+  const loadRazorpay = () => {
+    return new Promise((resolve) => {
+      if (window.Razorpay) {
+        resolve(true);
+        return;
+      }
+
+      const script = document.createElement("script");
+      script.src = "https://checkout.razorpay.com/v1/checkout.js";
+      script.onload = () => resolve(true);
+      script.onerror = () => resolve(false);
+      document.body.appendChild(script);
+    });
+  };
+
   const placeOrder = async () => {
     if (!validateForm()) return;
 
@@ -40,20 +57,71 @@ function Order() {
     }));
 
     setIsLoading(true);
+
     try {
+      // 1️⃣ Create order
       const res = await orderService.checkout({
         DeliveryAddress: address,
         PaymentMethod: payment,
         Items: items
       });
 
-      // ✅ ONLY FIX IS HERE
-      navigate("/order-success", {
-        state: { order: res.data.data }
+      const order = res.data.data;
+
+      // ✅ COD FLOW
+      if (payment === "Cod") {
+        navigate("/order-success", { state: { order } });
+        return;
+      }
+
+      // ✅ RAZORPAY FLOW
+      const loaded = await loadRazorpay();
+      if (!loaded) {
+        alert("Failed to load Razorpay SDK");
+        return;
+      }
+
+      // 2️⃣ Initiate payment
+      const paymentRes = await paymentService.initiatePayment({
+        orderId: order.id
       });
 
+      const paymentData = paymentRes.data.data;
+
+      // 3️⃣ Open Razorpay popup
+      const options = {
+        key: import.meta.env.VITE_RAZORPAY_KEY_ID, // ✅ from .env
+        amount: paymentData.amountInPaise,        // ✅ FIXED
+        currency: "INR",
+        name: "Flygans",
+        description: "Order Payment",
+        order_id: paymentData.razorpayOrderId,    // ✅ FIXED
+
+        handler: async function (response) {
+          // 4️⃣ Confirm payment
+          await paymentService.confirmPayment({
+            razorpayOrderId: response.razorpay_order_id,
+            razorpayPaymentId: response.razorpay_payment_id,
+            razorpaySignature: response.razorpay_signature
+          });
+
+          navigate("/order-success", { state: { order } });
+        },
+
+        prefill: {
+          name: "Flygans Customer"
+        },
+
+        theme: {
+          color: "#b45309"
+        }
+      };
+
+      const razorpay = new window.Razorpay(options);
+      razorpay.open();
+
     } catch (err) {
-      console.error("Order failed", err.response?.data || err);
+      console.error("Checkout failed", err);
       alert("Order failed. Please try again.");
     } finally {
       setIsLoading(false);
@@ -61,19 +129,11 @@ function Order() {
   };
 
   if (loadingCart) {
-    return (
-      <div className="min-h-screen flex items-center justify-center">
-        Loading...
-      </div>
-    );
+    return <div className="min-h-screen flex items-center justify-center">Loading...</div>;
   }
 
   if (cart.length === 0) {
-    return (
-      <div className="min-h-screen flex items-center justify-center">
-        Your cart is empty
-      </div>
-    );
+    return <div className="min-h-screen flex items-center justify-center">Your cart is empty</div>;
   }
 
   const subtotal = cart.reduce(
@@ -88,6 +148,7 @@ function Order() {
 
         <div className="flex flex-col lg:flex-row gap-8">
           <div className="lg:w-2/3">
+
             <div className="bg-white p-6 rounded-xl mb-6">
               <h2 className="font-semibold mb-3">Delivery Address</h2>
               <textarea
@@ -97,21 +158,29 @@ function Order() {
                 className="w-full border rounded p-3"
               />
               {formErrors.address && (
-                <p className="text-red-600 text-sm">
-                  {formErrors.address}
-                </p>
+                <p className="text-red-600 text-sm">{formErrors.address}</p>
               )}
             </div>
 
             <div className="bg-white p-6 rounded-xl mb-6">
               <h2 className="font-semibold mb-3">Payment Method</h2>
-              <label className="flex gap-2">
+
+              <label className="flex gap-2 mb-2">
                 <input
                   type="radio"
                   checked={payment === "Cod"}
                   onChange={() => setPayment("Cod")}
                 />
                 Cash on Delivery
+              </label>
+
+              <label className="flex gap-2">
+                <input
+                  type="radio"
+                  checked={payment === "Razorpay"}
+                  onChange={() => setPayment("Razorpay")}
+                />
+                Razorpay
               </label>
             </div>
 
@@ -123,12 +192,11 @@ function Order() {
                   className="flex justify-between border-b py-2"
                 >
                   <span>{item.productName}</span>
-                  <span>
-                    ₹{item.price} × {item.quantity}
-                  </span>
+                  <span>₹{item.price} × {item.quantity}</span>
                 </div>
               ))}
             </div>
+
           </div>
 
           <div className="lg:w-1/3">
@@ -148,6 +216,7 @@ function Order() {
               </button>
             </div>
           </div>
+
         </div>
       </div>
     </div>
