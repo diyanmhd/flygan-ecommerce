@@ -2,6 +2,9 @@
 import React, { useEffect, useState } from "react";
 import orderService from "../services/orderService";
 
+const FALLBACK_IMAGE =
+  "https://via.placeholder.com/150?text=No+Image";
+
 function MyOrders() {
   const [orders, setOrders] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -10,7 +13,7 @@ function MyOrders() {
     const fetchOrders = async () => {
       try {
         const res = await orderService.getMyOrders();
-        setOrders(res.data.data || []);
+        setOrders(res?.data?.data || []);
       } catch (err) {
         console.error("Failed to load orders", err);
         setOrders([]);
@@ -87,15 +90,18 @@ function MyOrders() {
 
               {/* Items */}
               <div className="divide-y">
-                {order.items.map((item) => (
+                {order.items?.map((item) => (
                   <div
                     key={item.productId}
                     className="p-4 flex items-center gap-4"
                   >
                     <img
-                      src={item.imageUrl}
+                      src={item.imageUrl || FALLBACK_IMAGE}
                       alt={item.productName}
-                      className="w-16 h-16 object-cover rounded"
+                      className="w-16 h-16 object-cover rounded border"
+                      onError={(e) => {
+                        e.target.src = FALLBACK_IMAGE;
+                      }}
                     />
 
                     <div className="flex-1">
@@ -120,8 +126,8 @@ function MyOrders() {
               {/* Footer */}
               <div className="p-4 border-t flex justify-between">
                 <p className="text-sm text-gray-600">
-                  {order.items.length} item
-                  {order.items.length !== 1 && "s"}
+                  {order.items?.length} item
+                  {order.items?.length !== 1 && "s"}
                 </p>
                 <p className="font-semibold">
                   Total: ₹{order.totalAmount}
