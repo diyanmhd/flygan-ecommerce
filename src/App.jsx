@@ -10,7 +10,7 @@ import Wishlist from "./pages/wishlist";
 import Cart from "./pages/cart";
 import Order from "./pages/order";
 import MyOrders from "./pages/MyOrders";
-import OrderSuccess from "./pages/OrderSuccess"; // ✅ ADD
+import OrderSuccess from "./pages/OrderSuccess"; //  ADD
 import Login from "./pages/login";
 import Register from "./pages/register";
 import { SearchProvider } from "./components/search";
@@ -35,14 +35,14 @@ function App() {
     location.pathname === "/login" ||
     location.pathname === "/register";
 
-  // 🔐 Protected route (USER only)
+  //  Protected route (USER only)
   const ProtectedRoute = ({ children }) => {
     if (!user) return <Navigate to="/login" replace />;
     if (role === "admin") return <Navigate to="/admin" replace />;
     return children;
   };
 
-  // 🔐 Login/Register route
+  //  Login/Register route
   const AuthRoute = ({ children }) => {
     if (!user) return children;
     return role === "admin"
@@ -50,14 +50,14 @@ function App() {
       : <Navigate to="/" replace />;
   };
 
-  // 🔐 Admin-only route
+  //  Admin-only route
   const AdminRoute = ({ children }) => {
     if (!user) return <Navigate to="/login" replace />;
     if (role !== "admin") return <Navigate to="/" replace />;
     return children;
   };
 
-  // 🌍 Public route (block admin)
+  //  Public route (block admin)
   const PublicRoute = ({ children }) => {
     if (role === "admin") return <Navigate to="/admin" replace />;
     return children;

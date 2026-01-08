@@ -59,7 +59,7 @@ function Order() {
     setIsLoading(true);
 
     try {
-      // 1️⃣ Create order
+      // 1️ Create order
       const res = await orderService.checkout({
         DeliveryAddress: address,
         PaymentMethod: payment,
@@ -68,37 +68,37 @@ function Order() {
 
       const order = res.data.data;
 
-      // ✅ COD FLOW
+      //  COD FLOW
       if (payment === "Cod") {
         navigate("/order-success", { state: { order } });
         return;
       }
 
-      // ✅ RAZORPAY FLOW
+      //  RAZORPAY FLOW
       const loaded = await loadRazorpay();
       if (!loaded) {
         alert("Failed to load Razorpay SDK");
         return;
       }
 
-      // 2️⃣ Initiate payment
+      // 2️ Initiate payment
       const paymentRes = await paymentService.initiatePayment({
         orderId: order.id
       });
 
       const paymentData = paymentRes.data.data;
 
-      // 3️⃣ Open Razorpay popup
+      // 3️ Open Razorpay popup
       const options = {
-        key: import.meta.env.VITE_RAZORPAY_KEY_ID, // ✅ from .env
-        amount: paymentData.amountInPaise,        // ✅ FIXED
+        key: import.meta.env.VITE_RAZORPAY_KEY_ID, //  from .env
+        amount: paymentData.amountInPaise,        // FIXED
         currency: "INR",
         name: "Flygans",
         description: "Order Payment",
-        order_id: paymentData.razorpayOrderId,    // ✅ FIXED
+        order_id: paymentData.razorpayOrderId,    // FIXED
 
         handler: async function (response) {
-          // 4️⃣ Confirm payment
+          // 4️ Confirm payment
           await paymentService.confirmPayment({
             razorpayOrderId: response.razorpay_order_id,
             razorpayPaymentId: response.razorpay_payment_id,
@@ -113,7 +113,7 @@ function Order() {
         },
 
         theme: {
-          color: "#b45309"
+          color: "#16a34a"
         }
       };
 
@@ -129,11 +129,11 @@ function Order() {
   };
 
   if (loadingCart) {
-    return <div className="min-h-screen flex items-center justify-center">Loading...</div>;
+    return <div className="min-h-screen flex items-center justify-center bg-gray-950 text-gray-400">Loading...</div>;
   }
 
   if (cart.length === 0) {
-    return <div className="min-h-screen flex items-center justify-center">Your cart is empty</div>;
+    return <div className="min-h-screen flex items-center justify-center bg-gray-950 text-gray-400">Your cart is empty</div>;
   }
 
   const subtotal = cart.reduce(
@@ -142,57 +142,60 @@ function Order() {
   );
 
   return (
-    <div className="min-h-screen bg-gray-50 py-8 px-4">
+    <div className="min-h-screen bg-gray-950 py-8 px-4">
       <div className="max-w-6xl mx-auto">
-        <h1 className="text-3xl font-bold mb-6">Checkout</h1>
+        <h1 className="text-3xl font-bold mb-6 text-green-400">Checkout</h1>
 
         <div className="flex flex-col lg:flex-row gap-8">
           <div className="lg:w-2/3">
 
-            <div className="bg-white p-6 rounded-xl mb-6">
-              <h2 className="font-semibold mb-3">Delivery Address</h2>
+            <div className="bg-gray-900 border border-gray-800 p-6 rounded-xl mb-6 shadow-xl shadow-black/50">
+              <h2 className="font-semibold mb-3 text-gray-200">Delivery Address</h2>
               <textarea
                 rows="4"
                 value={address}
                 onChange={(e) => setAddress(e.target.value)}
-                className="w-full border rounded p-3"
+                className="w-full bg-gray-800 border border-gray-700 text-gray-200 placeholder-gray-500 rounded p-3 focus:outline-none focus:ring-1 focus:ring-green-500 focus:border-green-500 transition-all duration-300"
+                placeholder="Enter your complete delivery address..."
               />
               {formErrors.address && (
-                <p className="text-red-600 text-sm">{formErrors.address}</p>
+                <p className="text-red-400 text-sm mt-2">{formErrors.address}</p>
               )}
             </div>
 
-            <div className="bg-white p-6 rounded-xl mb-6">
-              <h2 className="font-semibold mb-3">Payment Method</h2>
+            <div className="bg-gray-900 border border-gray-800 p-6 rounded-xl mb-6 shadow-xl shadow-black/50">
+              <h2 className="font-semibold mb-3 text-gray-200">Payment Method</h2>
 
-              <label className="flex gap-2 mb-2">
+              <label className="flex gap-2 mb-3 cursor-pointer group">
                 <input
                   type="radio"
                   checked={payment === "Cod"}
                   onChange={() => setPayment("Cod")}
+                  className="accent-green-600"
                 />
-                Cash on Delivery
+                <span className="text-gray-300 group-hover:text-green-400 transition-colors duration-300">Cash on Delivery</span>
               </label>
 
-              <label className="flex gap-2">
+              <label className="flex gap-2 cursor-pointer group">
                 <input
                   type="radio"
                   checked={payment === "Razorpay"}
                   onChange={() => setPayment("Razorpay")}
+                  className="accent-green-600"
                 />
-                Razorpay
+                <span className="text-gray-300 group-hover:text-green-400 transition-colors duration-300">Razorpay</span>
               </label>
             </div>
 
-            <div className="bg-white p-6 rounded-xl">
-              <h2 className="font-semibold mb-4">Order Items</h2>
+            <div className="bg-gray-900 border border-gray-800 p-6 rounded-xl shadow-xl shadow-black/50">
+              <h2 className="font-semibold mb-4 text-gray-200">Order Items</h2>
               {cart.map((item) => (
                 <div
                   key={item.productId}
-                  className="flex justify-between border-b py-2"
+                  className="flex justify-between border-b border-gray-800 py-3 last:border-b-0"
                 >
-                  <span>{item.productName}</span>
-                  <span>₹{item.price} × {item.quantity}</span>
+                  <span className="text-gray-300">{item.productName}</span>
+                  <span className="text-gray-400">₹{item.price} × {item.quantity}</span>
                 </div>
               ))}
             </div>
@@ -200,17 +203,17 @@ function Order() {
           </div>
 
           <div className="lg:w-1/3">
-            <div className="bg-white p-6 rounded-xl sticky top-6">
-              <h2 className="font-semibold mb-3">Summary</h2>
-              <div className="flex justify-between mb-2">
-                <span>Total</span>
-                <span>₹{subtotal}</span>
+            <div className="bg-gray-900 border border-gray-800 p-6 rounded-xl sticky top-6 shadow-xl shadow-black/50">
+              <h2 className="font-semibold mb-3 text-gray-200">Summary</h2>
+              <div className="flex justify-between mb-2 pb-4 border-b border-gray-800">
+                <span className="text-gray-300">Total</span>
+                <span className="text-green-500 font-semibold text-lg">₹{subtotal}</span>
               </div>
 
               <button
                 onClick={placeOrder}
                 disabled={isLoading}
-                className="w-full bg-amber-700 text-white py-3 rounded mt-4"
+                className="w-full bg-green-600 text-white py-3 rounded mt-4 hover:bg-green-700 transition-colors duration-300 shadow-lg shadow-green-900/50 disabled:opacity-50 disabled:cursor-not-allowed font-medium"
               >
                 {isLoading ? "Processing..." : "Place Order"}
               </button>

@@ -1,14 +1,14 @@
 import API from "./api";
 
 const wishlistService = {
-  // ❤️ Get wishlist items
+  //  Get wishlist items
   getWishlist: () => API.get("/Wishlist"),
 
-  // ➕ Add to wishlist
+  //  Add to wishlist
   addToWishlist: (productId) =>
     API.post(`/Wishlist/${productId}`),
 
-  // ❌ Remove from wishlist
+  //  Remove from wishlist
   removeFromWishlist: (productId) =>
     API.delete(`/Wishlist/${productId}`),
 };

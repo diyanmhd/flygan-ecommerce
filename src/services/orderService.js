@@ -17,17 +17,17 @@ const orderService = {
 
   /* ================= ADMIN ================= */
 
-  // ✅ ADMIN – Get all orders
+  //  ADMIN – Get all orders
   getAllOrders: () => {
     return API.get("/Orders/all");
   },
 
-  // ✅ ADMIN – Delete order
+  //  ADMIN – Delete order
   deleteOrder: (orderId) => {
     return API.delete(`/Orders/${orderId}`);
   },
 
-  // ✅ ADMIN – Update order status
+  //  ADMIN – Update order status
   updateOrderStatus: (orderId, status) => {
     return API.patch(`/Orders/${orderId}/status`, {
       status,

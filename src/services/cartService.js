@@ -1,22 +1,22 @@
 import API from "./api";
 
 const cartService = {
-  // 🛒 Get cart items
+  // Get cart items
   getCart: () => API.get("/Cart"),
 
-  // ➕ Add item to cart
+  //  Add item to cart
   addToCart: (productId, quantity = 1) =>
     API.post(`/Cart/${productId}?quantity=${quantity}`),
 
-  // 🔄 Update quantity
+  // Update quantity
   updateQuantity: (productId, quantity) =>
     API.put(`/Cart/${productId}?quantity=${quantity}`),
 
-  // ❌ Remove item
+  //  Remove item
   removeFromCart: (productId) =>
     API.delete(`/Cart/${productId}`),
 
-  // 🧹 Clear cart
+  //  Clear cart
   clearCart: () => API.delete("/Cart"),
 };
 

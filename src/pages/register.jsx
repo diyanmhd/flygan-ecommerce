@@ -61,20 +61,22 @@ function Register() {
   }
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-gray-100">
-      <div className="bg-white p-6 rounded shadow-md w-80">
-        <h2 className="text-center text-xl font-bold mb-6">
-          Create Account
-        </h2>
+    <div className="flex justify-center items-center min-h-screen bg-gray-950 px-4">
+      <div className="bg-gray-900 border border-gray-800 p-8 rounded-xl shadow-2xl shadow-black/50 w-full max-w-md">
+        {/* Logo/Brand */}
+        <div className="text-center mb-8">
+          <h2 className="text-3xl font-bold text-green-400 mb-2">Create Account</h2>
+          <p className="text-gray-400 text-sm">Join us to start shopping</p>
+        </div>
 
         <form onSubmit={handleRegister}>
           {/* Full Name */}
-          <div className="mb-4">
-            <label className="block text-sm mb-1">Full Name</label>
+          <div className="mb-5">
+            <label className="block text-sm mb-2 text-gray-300 font-medium">Full Name</label>
             <input
               type="text"
               placeholder="Enter your full name"
-              className="w-full border px-2 py-1 rounded"
+              className="w-full bg-gray-800 border border-gray-700 text-gray-200 placeholder-gray-500 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-300"
               onChange={(e) =>
                 dispatch({
                   type: "name",
@@ -85,12 +87,12 @@ function Register() {
           </div>
 
           {/* Email */}
-          <div className="mb-4">
-            <label className="block text-sm mb-1">Email</label>
+          <div className="mb-5">
+            <label className="block text-sm mb-2 text-gray-300 font-medium">Email Address</label>
             <input
               type="email"
               placeholder="Enter your email"
-              className="w-full border px-2 py-1 rounded"
+              className="w-full bg-gray-800 border border-gray-700 text-gray-200 placeholder-gray-500 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-300"
               onChange={(e) =>
                 dispatch({
                   type: "email",
@@ -101,12 +103,12 @@ function Register() {
           </div>
 
           {/* Password */}
-          <div className="mb-4">
-            <label className="block text-sm mb-1">Password</label>
+          <div className="mb-5">
+            <label className="block text-sm mb-2 text-gray-300 font-medium">Password</label>
             <input
               type="password"
-              placeholder="Enter password"
-              className="w-full border px-2 py-1 rounded"
+              placeholder="Create a strong password"
+              className="w-full bg-gray-800 border border-gray-700 text-gray-200 placeholder-gray-500 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-300"
               onChange={(e) =>
                 dispatch({
                   type: "password",
@@ -118,27 +120,38 @@ function Register() {
 
           {/* Error */}
           {state.error && (
-            <p className="text-red-500 text-sm mb-2">
+            <div className="mb-5 bg-red-500/10 border border-red-500/50 text-red-400 px-4 py-3 rounded-lg text-sm">
               {state.error}
-            </p>
+            </div>
           )}
 
           {/* Submit */}
           <button
             type="submit"
-            className="w-full bg-indigo-500 text-white py-2 rounded hover:bg-indigo-600"
+            className="w-full bg-green-600 text-white py-3 rounded-lg font-medium hover:bg-green-700 transition-all duration-300 shadow-lg shadow-green-900/50"
           >
-            Register
+            Create Account
           </button>
         </form>
 
-        <p className="text-center text-sm mt-4">
+        {/* Divider */}
+        <div className="relative my-6">
+          <div className="absolute inset-0 flex items-center">
+            <div className="w-full border-t border-gray-800"></div>
+          </div>
+          <div className="relative flex justify-center text-sm">
+            <span className="px-2 bg-gray-900 text-gray-500">or</span>
+          </div>
+        </div>
+
+        {/* Login Link */}
+        <p className="text-center text-sm text-gray-400">
           Already have an account?{" "}
           <span
-            className="text-indigo-500 cursor-pointer hover:underline"
+            className="text-green-400 hover:text-green-300 font-medium cursor-pointer transition-colors duration-300"
             onClick={() => navigate("/login")}
           >
-            Sign in
+            Sign In
           </span>
         </p>
       </div>
